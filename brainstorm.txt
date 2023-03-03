@@ -1,0 +1,11 @@
+Git Food.Travel (Title)
+
+User is able to input a city and that city will pop up with hotels and restruants (description)
+
+(user story) As a traveler I want to be able to select a city and taste the best food with the top hotels.
+So that I can start to plan my awesome trip 
+
+APIs: https://rapidapi.com/DataCrawler/api/tripadvisor16/ 
+https://rapidapi.com/apidojo/api/hotels4/pricing
+
+

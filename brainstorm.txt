@@ -1,11 +1,32 @@
 Git Food.Travel (Title)
 
-User is able to input a city and that city will pop up with hotels and restruants (description)
+Description:
+User is able to input a city and that city will pop up with hotels and restruants of user choice 
 
-(user story) As a traveler I want to be able to select a city and taste the best food with the top hotels.
-So that I can start to plan my awesome trip 
+User Story: As a travler
+I want a site that can help me find hotels and a variety of restaurants
+Then I can save them to my favorite list 
+So that I can start planning
 
-APIs: https://rapidapi.com/DataCrawler/api/tripadvisor16/ 
+Acceptance Criteria:
+Given when the page loads, the title and description of the site is presented
+When the travler is ready to start their search for either a hotel or restaurants, the travler will navigate to one of the search boxes of their choice.
+The two search boxes are: hotel and restaurnats
+And when the travler enters a city name
+Then hotels will pop up below in one column
+Then when traveler searches for restaurants, they will pop up in column two
+When the traveler clicks the save button
+Then the favorite will be added to the favorite list found in the navbar
+
+APIs: still need to confirm which we are using
+ https://rapidapi.com/DataCrawler/api/tripadvisor16/ 
 https://rapidapi.com/apidojo/api/hotels4/pricing
+
+Overall: 
+user needs to be able to search for hotels and restaurants
+    A) will need two input boxes
+        1) one for hotels
+        2) one for restaurants
+
 
 

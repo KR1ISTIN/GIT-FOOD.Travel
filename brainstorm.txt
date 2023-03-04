@@ -1,5 +1,7 @@
 Git Food.Travel (Title)
 
+Wireframe: https://wireframe.cc/egIqsm
+
 Description:
 User is able to input a city and that city will pop up with hotels and restruants of user choice 
 
@@ -9,24 +11,65 @@ Then I can save them to my favorite list
 So that I can start planning
 
 Acceptance Criteria:
-Given when the page loads, the title and description of the site is presented
-When the travler is ready to start their search for either a hotel or restaurants, the travler will navigate to one of the search boxes of their choice.
+GIVEN when the page loads, the title and description of the site is presented
+WHEN the travler is ready to start their search for either a hotel or restaurants, the travler will navigate to one of the search boxes of their choice.
 The two search boxes are: hotel and restaurnats
-And when the travler enters a city name
-Then hotels will pop up below in one column
-Then when traveler searches for restaurants, they will pop up in column two
-When the traveler clicks the save button
-Then the favorite will be added to the favorite list found in the navbar
+AND when the travler enters a city name in one of the boxes
+THEN hotels will pop up below in one column
+THEN when traveler searches for restaurants, they will pop up in column two
+WHEN the traveler clicks the save button
+THEN the favorite will be added to the favorite list found in the navbar
+THEN favorites will be added to localStorage
 
-APIs: still need to confirm which we are using
- https://rapidapi.com/DataCrawler/api/tripadvisor16/ 
-https://rapidapi.com/apidojo/api/hotels4/pricing
+Project Requirements:
+Use a CSS framework other than Bootstrap. 
+Be deployed to GitHub Pages.
+Be interactive (i.e., accept and respond to user input).
+Use at least two server-side APIs.
+Does not use alerts, confirms, or prompts (use modals).
+Use client-side storage to store persistent data.
+Be responsive.
+Have a polished UI.
+Have a clean repository that meets quality coding standards (file structure, naming conventions, follows best practices for class/id naming conventions, indentation, quality comments, etc.).
+Have a quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
+
+Restaurant API
+ 
+
+ Hotel API:
+ first call: https://priceline-com-provider.p.rapidapi.com/v1/hotels/locations?name=dallas&search_type=CITY // have to make this call first to get the city ID SO THEN we can access the hotels in that city
+ second call: https://priceline-com-provider.p.rapidapi.com/v1/hotels/search?date_checkout=2023-07-23&sort_order=STAR&date_checkin=2023-07-22&location_id=3000035821&star_rating_ids=4.5%2C5.0&rooms_number=1 // this link will allow access to the hotels inthe city
+
 
 Overall: 
 user needs to be able to search for hotels and restaurants
     A) will need two input boxes
         1) one for hotels
         2) one for restaurants
+        3) going to need check in and check out dates
+            -get values
+            -use template literals
+            -get check in and out date value and use them in the fetch url parameter
+WHEN the user types in a city THEN clicks the search button
+    A) will need a event listener for hotel search button
+    B) Will need a event listener for food search button
+        1)fetch calls will be made
+        2)IF hotels == null, THEN RETURN "sorry, no luxury found"
+    C) Need to clear the search box after the search button is clicked
+
+    
+THEN hotels or restaurants will pop up 
+    A) two columns are needed. 
+        1) one for restaurants
+        2) one for hotels 
+    B) Container used for data to populate 
+    C) Inside the container create 2 columns
+        1) inside each column horizontal cards are needed (maybe 5 on each side)
+        2)buttons are the side of each card so user can press to add to favorite
+            - the favorite button will need a event listener 
+            -maybe the button will change if clicked (if there is time)
+            -when added to favorites, it also needs to be added to localStoreage
+                -localStorage will probably need to use JSON pase and stringify since favorites will need to be added in an array in localStorage
 
 
 

@@ -1,12 +1,13 @@
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': 'f7405bb471mshd0743285be682f2p1aecacjsncf8b70e2b390',
-		'X-RapidAPI-Host': 'tripadvisor16.p.rapidapi.com'
-	}
-};
+// this is for the burger menu to become active
+$(document).ready(function() {
 
-fetch('https://tripadvisor16.p.rapidapi.com/api/v1/restaurant/searchLocation?query=mumbai', options)
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err));
+	// Check for click events on the navbar burger icon
+	$(".navbar-burger").click(function() {
+  
+		// Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+		$(".navbar-burger").toggleClass("is-active");
+		$(".navbar-menu").toggleClass("is-active");
+  
+	});
+  });
+

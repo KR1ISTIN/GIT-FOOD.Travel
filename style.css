@@ -1,10 +1,31 @@
 
+.hero {
+    background-image: url("assest/nils-nedel-ONpGBpns3cs-unsplash.jpg");
+    background-repeat: none;
+    background-size: cover;
+}
+
+#search {
+    display: flex;
+    justify-content: space-around;
+    padding: 3.5%;
+}
 
 
 main {
     padding: 20px;
     text-align: right;
   }
+
+/*
+#hCard {
+    margin-right: 30%;
+}
+
+#fCard {
+    margin-right: 15%;
+}
+*/
 
   .card {
     border: 1px solid #ccc;
@@ -50,18 +71,5 @@ main {
     color: #f00;
   }
 
-
-
-.hero {
-    background-image: url("assest/nils-nedel-ONpGBpns3cs-unsplash.jpg");
-    background-repeat: none;
-    background-size: cover;
-}
-
-#search {
-    display: flex;
-    justify-content: space-around;
-    padding: 3.5%;
-}
 
 

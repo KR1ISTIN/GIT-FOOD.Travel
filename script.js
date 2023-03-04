@@ -11,3 +11,16 @@ $(document).ready(function() {
 	});
   });
 
+  const hearts = document.querySelectorAll('.heart');
+  hearts.forEach((heart) => {
+	heart.addEventListener('click', () => {
+	  heart.classList.toggle('clicked');
+	  const cardTitle = heart.nextElementSibling.textContent;
+	  if (heart.classList.contains('clicked')) {
+		localStorage.setItem(cardTitle, true);
+	  } else {
+		localStorage.removeItem(cardTitle);
+	  }
+	  console.log(localStorage);
+	});
+  });

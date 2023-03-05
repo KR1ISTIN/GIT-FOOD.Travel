@@ -17,16 +17,6 @@ main {
     text-align: right;
   }
 
-/*
-#hCard {
-    margin-right: 30%;
-}
-
-#fCard {
-    margin-right: 15%;
-}
-*/
-
   .card {
     border: 1px solid #ccc;
     border-radius: 5px;

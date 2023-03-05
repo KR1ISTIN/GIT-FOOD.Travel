@@ -5,6 +5,7 @@
     background-size: cover;
 }
 
+
 #search {
     display: flex;
     justify-content: space-around;
@@ -16,6 +17,7 @@ main {
     padding: 20px;
     text-align: right;
   }
+
 
   .card {
     border: 1px solid #ccc;
@@ -30,10 +32,8 @@ main {
     position: relative;
   }
 
+
   .heart {
-    position: absolute;
-    top: 10px;
-    left: 10px;
     font-size: 24px;
     color: #fff;
     cursor: pointer;
@@ -43,10 +43,6 @@ main {
 
   .heart-outline {
     color: #000;
-  }
-
-  .heart:hover {
-    text-shadow: none;
   }
 
   .heart:before {

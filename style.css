@@ -16,6 +16,13 @@
 main {
     padding: 20px;
     text-align: right;
+ 
+  }
+
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
   }
 
 
@@ -57,5 +64,60 @@ main {
     color: #f00;
   }
 
+.hero {
+    background-image: url("assest/nils-nedel-ONpGBpns3cs-unsplash.jpg");
+    background-repeat: none;
+    background-size: cover;
+}
+
+#search {
+    display: flex;
+    justify-content: space-around;
+    padding: 3.5%;
+}
+#getDates {
+  display: flex;
+  margin: auto;
+  margin-top: 1em;
+}
+
+.datePicker {
+  display: flex;
+  margin: auto;
+  margin-top: 1em;
+  text-align: center;
+  width: 50%;
+  justify-content: space-evenly;
+}
+
+#datepicker-1,
+#datepicker-2 {
+  height: 1.5em;
+  width: 80%;
+}
+
+#datepicker-2 {
+  left: 0.5em;
+}
+
+.searchBox {
+  color: #ccc;
+  margin:.5em;
+}
+
+html {
+  background: linear-gradient(328deg, rgba(47,46,44,1) 0%, rgba(0,0,0,1) 100%);
+}
 
 
+  /* below for media query */
+  @media screen and (max-width: 500px) {
+    .datePicker {
+      display: block;
+    }
+  
+    #datepicker-1,
+    #datepicker-2 {
+      width: 100%;
+    }
+  }

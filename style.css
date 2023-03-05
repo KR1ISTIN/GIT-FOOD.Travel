@@ -1,4 +1,15 @@
 
+.hero {
+    background-image: url("assest/nils-nedel-ONpGBpns3cs-unsplash.jpg");
+    background-repeat: none;
+    background-size: cover;
+}
+
+#search {
+    display: flex;
+    justify-content: space-around;
+    padding: 3.5%;
+}
 
 
 main {
@@ -50,18 +61,5 @@ main {
     color: #f00;
   }
 
-
-
-.hero {
-    background-image: url("assest/nils-nedel-ONpGBpns3cs-unsplash.jpg");
-    background-repeat: none;
-    background-size: cover;
-}
-
-#search {
-    display: flex;
-    justify-content: space-around;
-    padding: 3.5%;
-}
 
 

@@ -1,29 +1,39 @@
 # GIT FOOD.Travel
 ## Description
+----------------------------------
+A Webpage that will provide key travel information
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
+- As a frequent traveler
+- its is very nice to know the hotels available and resturaunts in a specific area for future travel shenanigans!
 
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
-
-
-## Installation
-N/A 
 
 ## Usage
+----------------------------------
+-       to search for hotels, enter a check-in and check-out date as well as a city name in the search bar for hotels, this will bring up the top 5 hotels with a 4 star rating or higher, and it will be displayed on the left column of cards below!
 
-Provide instructions and examples for use. Include screenshots as needed.
+-       to search for resturaunts, enter a city name in the resturaunts search bar and it will retrieve the top 5 resturaunts which will be displayed on the right column of cards below!
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative file path, add it to your README using the following syntax:
-
-![alt text](assets/images/screenshot.png)
+![alt text](assest/gitfood-travel-screenshot.jpg)
 
 ## Credits
 
-List your collaborators, if any, with links to their GitHub profiles.
 
+ ## Devs
+ ------------- 
+- Nigel Poblete
+- 
+-
+
+## Tools Used
+--------------
+- Html
+- Css
+- JavaScript
+- Bulma
+- Font Awesome
+
+## API'S Used
+------------
 If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
 
 

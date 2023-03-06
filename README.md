@@ -15,17 +15,18 @@ A Webpage that will provide key travel information
 
 ![alt text](assest/gitfood-travel-screenshot.jpg)
 
-## Credits
+---------
+# Credits
+---------
 
+## Devs
 
- ## Devs
- ------------- 
 - Nigel Poblete
 - 
 -
 
 ## Tools Used
---------------
+
 - Html
 - Css
 - JavaScript
@@ -33,10 +34,10 @@ A Webpage that will provide key travel information
 - Font Awesome
 
 ## API'S Used
-------------
+
 If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
 
-
+----------
 
 ## License
 N/A

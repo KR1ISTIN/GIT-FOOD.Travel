@@ -1,9 +1,13 @@
 
 // *********** Nav Bar Timer *********** \\
+
 setInterval(function() {
     $('#navTime').text(dayjs().format(' MMMM D, YYYY h:mm A '));
 }, 1000);
+
+
 // *********** Nav Bar Timer *********** \\
+
 
 
 var getData = $("#getDates") //submit button on check in and out

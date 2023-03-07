@@ -1,3 +1,4 @@
+
 // *********** Nav Bar Timer *********** \\
 setInterval(function() {
     $('#navTime').text(dayjs().format(' MMMM D, YYYY h:mm A '));

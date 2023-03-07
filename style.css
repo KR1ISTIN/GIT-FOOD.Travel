@@ -5,18 +5,14 @@
     background-size: cover;
 }
 
-
 #search {
     display: flex;
     justify-content: space-around;
     padding: 3.5%;
 }
 
-
 main {
     padding: 20px;
-    text-align: right;
- 
   }
 
   .sticky {
@@ -24,7 +20,6 @@ main {
     top: 0;
     width: 100%;
   }
-
 
   .card {
     border: 1px solid #ccc;
@@ -109,6 +104,24 @@ html {
   background: linear-gradient(328deg, rgba(47,46,44,1) 0%, rgba(0,0,0,1) 100%);
 }
 
+@media screen and (max-width: 770px) {
+  #hotelID {
+    width: 50%;
+    margin: 2%;
+    font-size: 0.8em;
+  }
+  
+  #restaurantID {
+    width: 50%;
+    margin: 2%;
+    font-size: 0.8em;
+  }
+
+  #datepicker-2 {
+    left: 0;
+  }
+  
+}
 
   /* below for media query */
   @media screen and (max-width: 500px) {
@@ -120,4 +133,9 @@ html {
     #datepicker-2 {
       width: 100%;
     }
+
+    #datepicker-2 {
+      left: 0;
+    }
   }
+

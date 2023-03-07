@@ -13,7 +13,7 @@
 
 
 <!--  Navbar 1-->
-<body class="has-background-grey">
+<body>
   <nav class="navbar sticky" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://bulma.io">
@@ -32,16 +32,13 @@
         <a class="navbar-item">
           Home
         </a>
-  
         <a class="navbar-item">
          About
         </a>
-  
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">
             Favorites
           </a>
-  
           <div class="navbar-dropdown">
             <a class="navbar-item">
               Favorite Food
@@ -56,7 +53,6 @@
           </div>
         </div>
       </div>
-  
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
@@ -107,74 +103,73 @@
   </div>
   <button id="getDates" class="button is-dark is-small">Submit</button>
     <!-- ****** BOTH CARD CONAINERS ***** -->
-    <main id="cardCon" class="columns has-background-grey is-clipped">
-          <!-- ********* HOTEL CARD CONTAINER *********** -->
-          <div id="hCard" class="column-is-left">
-            <!-- ********* HOTEL CARDS *********** -->    
-            <div class="card has-background-black">
-                <span class="card-header-icon-is-right heart heart-outline has-text-danger "></span>
-                <h2 class="card-header has-text-white">Hotel 1</h2>
-                <p class="card-content has-text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-              
-            <div class="card has-background-black">
-                <span class="card-header-icon-is-right heart heart-outline has-text-danger"></span>
-                <h2 class="card-header has-text-white">Hotel 2</h2>
-                <p class="card-content has-text-white">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-              </div>
-              
-              <div class="card has-background-black">
-                <span class="card-header-icon-is-right heart heart-outline has-text-danger"></span>
-                <h2 class="card-header has-text-white">Hotel 3</h2>
-                <p class="card-content has-text-white">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              </div>
-              
-              <div class="card has-background-black">
-                <span class="card-header-icon-is-right heart heart-outline has-text-danger"></span>
-                <h2 class="card-header has-text-white">Hotel 4</h2>
-                <p class="card-content has-text-white">Quisque eget ante eu augue mollis mattis a euismod velit.</p>
-              </div>
-              
-              <div class="card has-background-black">
-                <span class="card-header-icon-is-right heart heart-outline has-text-danger"></span>
-                <h2 class="card-header has-text-white">Hotel 5</h2>
-                <p class="card-content has-text-white">Phasellus ullamcorper, purus et pellentesque dignissim, elit purus bibendum urna.</p>
-              </div>    
-            </div>
-
+    <main id="cardCon">
           <!-- ********* FOOD CARD container *********** -->
-          <div id="fCard" class="column">
-              
-              <!-- ********* FOOD CARDS *********** -->    
-              <div class="card has-background-black">
+          <div id="fCard" class="columns is-mobile" style="justify-content:center; justify-content:space-around">
+            <div class="is-half" id="hotelID">
+              <!-- ********* HOTEL CARDS *********** -->    
+              <div class="card has-background-white">
                 <span class="card-header-icon-is-left heart heart-outline has-text-danger"></span>
-                <h2 class="card-header has-text-white">Resturaunt 1</h2>
-                <p class="card-content has-text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h2 class="card-header has-text-black">Hotel 1</h2>
+                <p class="card-content has-text-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
               </div>
 
-              <div class="card has-background-black">
+              <div class="card has-background-white">
                <span class="card-header-icon-is-left heart heart-outline has-text-danger"></span>
-                <h2 class="card-header has-text-white">Resturaunt 2</h2>
-                <p class="card-content has-text-white">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <h2 class="card-header has-text-black">Hotel 2</h2>
+                <p class="card-content has-text-black">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
               </div>
 
-              <div class="card has-background-black">
+              <div class="card has-background-white">
                 <span class="card-header-icon-is-left heart heart-outline has-text-danger"></span>
-                <h2 class="card-header has-text-white">Resturaunt 3</h2>
-                <p class="card-content has-text-white">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <h2 class="card-header has-text-black">Hotel 3</h2>
+                <p class="card-content has-text-black">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
               </div>
 
-              <div class="card has-background-black">
+              <div class="card has-background-white">
                 <span class="card-header-icon-is-left heart heart-outline has-text-danger"></span>
-                <h2 class="card-header has-text-white">Resturaunt 4</h2>
-                <p class="card-content has-text-white">Quisque eget ante eu augue mollis mattis a euismod velit.</p>
+                <h2 class="card-header has-text-black">Hotel4</h2>
+                <p class="card-content has-text-black">Quisque eget ante eu augue mollis mattis a euismod velit.</p>
               </div>
 
-              <div class="card has-background-black">
+              <div class="card has-background-white">
                 <span class="card-header-icon-is-left heart heart-outline has-text-danger"></span>
-                <h2 class="card-header has-text-white">Resturaunt 5</h2>
-                <p class="card-content has-text-white">Phasellus ullamcorper, purus et pellentesque dignissim, elit purus bibendum urna.</p>
+                <h2 class="card-header has-text-black">Hotel 5</h2>
+                <p class="card-content has-text-black">Phasellus ullamcorper, purus et pellentesque dignissim, elit purus bibendum urna.</p>
+              </div> 
+            </div>
+              <!--********RESTAURANT CARD*********-->
+            <div class="is-half" id="restaurantID">
+              <div class="card has-background-white">
+                <span class="card-header-icon-is-right heart heart-outline has-text-danger "></span>
+                <h2 class="card-header has-text-black">Resturant 1</h2>
+                <p class="card-content has-text-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+              
+              <div class="card has-background-white">
+                <span class="card-header-icon-is-right heart heart-outline has-text-danger"></span>
+                <h2 class="card-header has-text-black">Resturant 2</h2>
+                <p class="card-content has-text-black">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+              
+              <div class="card has-background-white">
+                <span class="card-header-icon-is-right heart heart-outline has-text-danger"></span>
+                <h2 class="card-header has-text-black">Resturant 3</h2>
+                <p class="card-content has-text-black">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </div>
+
+              <div class="card has-background-white">
+                <span class="card-header-icon-is-right heart heart-outline has-text-danger"></span>
+                <h2 class="card-header has-text-black">Resturant 4</h2>
+                <p class="card-content has-text-black">Quisque eget ante eu augue mollis mattis a euismod velit.</p>
+              </div>
+              
+              <div class="card has-background-white">
+                <span class="card-header-icon-is-right heart heart-outline has-text-danger"></span>
+                <h2 class="card-header has-text-black">Resturant 5</h2>
+                <p class="card-content has-text-black">Phasellus ullamcorper, purus et pellentesque dignissim, elit purus bibendum urna.</p>
               </div>    
+            </div>
           </div>
     </main>
 </body>
@@ -182,5 +177,4 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="script.js"></script>
-
 </html>

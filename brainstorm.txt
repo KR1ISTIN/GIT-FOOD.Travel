@@ -56,18 +56,22 @@ user needs to be able to search for hotels and restaurants
             -use template literals
             -get check in and out date value and use them in the fetch url parameter
 WHEN the user types in a city THEN clicks the search button
-    A) will need a event listener for hotel search button
-    B) Will need a event listener for food search button
+    A) Will need a event listener for food search button- user enters a city
         1)fetch calls will be made
-        2)IF hotels == null, THEN RETURN "sorry, no luxury found"
-    C) Need to clear the search box after the search button is clicked
-
-    
-THEN hotels or restaurants will pop up 
+    B) Need to clear the search box after the search button is clicked
+    C) hotel search does not need a search button due to fetch call
+        1) due to the fetch call parameters, we need to get the value from the city in the hotel input, 
+        and combine it in the fetch call with the location ID, and the input values from check in and check wil also be called
+        THEN when they hit the submit TEHN the hotels will populate 
+LAYOUT for Body:
     A) two columns are needed. 
         1) one for restaurants
         2) one for hotels 
-    B) Container used for data to populate 
+    B) Data will be placed on cards
+        1) includes hotel name
+        2) includes hotel description 
+        1) restaurant name 
+        2) restaurant description 
     C) Inside the container create 2 columns
         1) inside each column horizontal cards are needed (maybe 5 on each side)
         2)buttons are the side of each card so user can press to add to favorite
@@ -76,5 +80,8 @@ THEN hotels or restaurants will pop up
             -when added to favorites, it also needs to be added to localStoreage
                 -localStorage will probably need to use JSON pase and stringify since favorites will need to be added in an array in localStorage
 
-
+1) user types in city for food
+- add cick event on that that search button 
+- the value needs to get passed in from search bar 
+-
 

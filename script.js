@@ -1,3 +1,6 @@
+var getData = $("#getDates") //submit button on check in and out
+var checkIn = $("#datepicker-1") // check in input
+var checkOut = $("#datepicker-2") // check out input
 
 // *********** Nav Bar Timer *********** \\
 setInterval(function() {
@@ -6,9 +9,6 @@ setInterval(function() {
 // *********** Nav Bar Timer *********** \\
 
 
-var getData = $("#getDates") //submit button on check in and out
-var checkIn = $("#datepicker-1") // check in input
-var checkOut = $("#datepicker-2") // check out input
 
 // this is for the burger menu to become active
 $(document).ready(function() {
@@ -63,6 +63,7 @@ the hotel fetch parameters, these functions provide the datepicker widget*/
 	heart.addEventListener('click', () => {
 	  heart.classList.toggle('clicked');
 	  var cardTitle = heart.nextElementSibling.textContent;
+
 	  if (heart.classList.contains('clicked')) {
 		localStorage.setItem(cardTitle, true);
 	  } else {

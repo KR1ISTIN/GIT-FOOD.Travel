@@ -1,3 +1,10 @@
+// *********** Nav Bar Timer *********** \\
+setInterval(function() {
+    $('#navTime').text(dayjs().format(' MMMM D, YYYY h:mm A '));
+}, 1000);
+// *********** Nav Bar Timer *********** \\
+
+
 // this is for the burger menu to become active
 $(document).ready(function() {
 

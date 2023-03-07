@@ -1,194 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Git Food.Travel</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Git Food.Travel</title>
 </head>
-<body class="has-background-grey">
-    
-  <!-- ****** NAV BAR ****** -->
-      <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="https://bulma.io">
-            <img  src="assest/git-travel-logo.png">
+
+
+<!--  Navbar 1-->
+<body>
+  <nav class="navbar sticky" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bulma.io">
+        <img  src="assest/git-travel-logo.png">
+      </a>
+  
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item">
+          Home
+        </a>
+        <a class="navbar-item">
+         About
+        </a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Favorites
           </a>
-      
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-      
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start">
+          <div class="navbar-dropdown">
             <a class="navbar-item">
-              Home
+              Favorite Food
             </a>
-      
             <a class="navbar-item">
-             About
+              Favorite Hotels
             </a>
-      
-            <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link">
-                Favorites
-              </a>
-      
-              <div class="navbar-dropdown">
-                <a class="navbar-item">
-                  Favorite Food
-                </a>
-                <a class="navbar-item">
-                  Favorite Hotels
-                </a>
-                <a class="navbar-item">
-                  All Favorites 
-                </a>
-                <hr class="navbar-divider">
-              </div>
-            </div>
-          </div>
-      
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="buttons">
-              </div>
-            </div>
+            <a class="navbar-item">
+              All Favorites 
+            </a>
+            <hr class="navbar-divider">
           </div>
         </div>
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+          </div>
+        </div>
+      </div>
+    </div>
         <div>
         
       </div>
-      </nav>
+  </nav>
       <h1 id="navTime" class="has-background-dark has-text-white pl-1"></h1>
-    
     <!-- ****** HEADER ****** -->
-      <header>
-        <section class="hero is-large is-info">
-            <div class="hero-body">
-              <p class="title">
-                GIT FOOD.Travel
-              </p>
-              <p class="subtitle">
-                A site to meet all your <em>luxury</em> needs, including food and comfort
-              </p>
-            </div>
-            <div id="search" class="columns is-desktop is-multiline">
-              <div class="field has-addons">
-                <div class="control">
-                  <input class="input" type="text" placeholder="Search City for Hotels">
-                </div>
-                <div class="control">
-                  <a class="button is-info has-background-dark">
-                    Search
-                  </a>
-                </div>
-              </div>
-              <div class="field has-addons">
-                <div  idclass="control">
-                  <input class="input" type="text" placeholder="Search City for Food">
-                </div>
-                <div class="control">
-                  <a class="button is-info has-background-dark ">
-                    Search
-                  </a>
-                </div>
-              </div>
-            </div>
-
-          </section>
-    </header>
-    
-
-    
-
-    <!-- ****** BOTH CARD CONAINERS ***** -->
-    <main id="cardCon" class="columns has-background-grey is-clipped">
-          <!-- ********* HOTEL CARD CONTAINER *********** -->
-          <div id="hCard" class="column-is-left">
-            <!-- ********* HOTEL CARDS *********** -->    
-            <div class="card has-background-black">
-                <span class="card-header-icon-is-right heart heart-outline has-text-danger "></span>
-                <h2 class="card-header has-text-white">Hotel 1</h2>
-                <p class="card-content has-text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-              
-            <div class="card has-background-black">
-                <span class="card-header-icon-is-right heart heart-outline has-text-danger"></span>
-                <h2 class="card-header has-text-white">Hotel 2</h2>
-                <p class="card-content has-text-white">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-              </div>
-              
-              <div class="card has-background-black">
-                <span class="card-header-icon-is-right heart heart-outline has-text-danger"></span>
-                <h2 class="card-header has-text-white">Hotel 3</h2>
-                <p class="card-content has-text-white">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              </div>
-              
-              <div class="card has-background-black">
-                <span class="card-header-icon-is-right heart heart-outline has-text-danger"></span>
-                <h2 class="card-header has-text-white">Hotel 4</h2>
-                <p class="card-content has-text-white">Quisque eget ante eu augue mollis mattis a euismod velit.</p>
-              </div>
-              
-              <div class="card has-background-black">
-                <span class="card-header-icon-is-right heart heart-outline has-text-danger"></span>
-                <h2 class="card-header has-text-white">Hotel 5</h2>
-                <p class="card-content has-text-white">Phasellus ullamcorper, purus et pellentesque dignissim, elit purus bibendum urna.</p>
-              </div>    
-            </div>
-
-          <!-- ********* FOOD CARD container *********** -->
-          <div id="fCard" class="column">
-              
-              <!-- ********* FOOD CARDS *********** -->    
-              <div class="card has-background-black">
-                <span class="card-header-icon-is-left heart heart-outline has-text-danger"></span>
-                <h2 class="card-header has-text-white">Resturaunt 1</h2>
-                <p class="card-content has-text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </div>
-
-              <div class="card has-background-black">
-               <span class="card-header-icon-is-left heart heart-outline has-text-danger"></span>
-                <h2 class="card-header has-text-white">Resturaunt 2</h2>
-                <p class="card-content has-text-white">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-              </div>
-
-              <div class="card has-background-black">
-                <span class="card-header-icon-is-left heart heart-outline has-text-danger"></span>
-                <h2 class="card-header has-text-white">Resturaunt 3</h2>
-                <p class="card-content has-text-white">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              </div>
-
-              <div class="card has-background-black">
-                <span class="card-header-icon-is-left heart heart-outline has-text-danger"></span>
-                <h2 class="card-header has-text-white">Resturaunt 4</h2>
-                <p class="card-content has-text-white">Quisque eget ante eu augue mollis mattis a euismod velit.</p>
-              </div>
-
-              <div class="card has-background-black">
-                <span class="card-header-icon-is-left heart heart-outline has-text-danger"></span>
-                <h2 class="card-header has-text-white">Resturaunt 5</h2>
-                <p class="card-content has-text-white">Phasellus ullamcorper, purus et pellentesque dignissim, elit purus bibendum urna.</p>
-              </div>    
+    <header>
+      <section class="hero is-large is-info">
+          <div class="hero-body">
+            <p class="title">
+              GIT FOOD.Travel
+            </p>
+            <p class="subtitle">
+              A site to meet all your <em>luxury</em> needs, including food and comfort
+            </p>
           </div>
-</main>
+          <div id="search" class="columns is-desktop is-multiline">
+            <div class="field has-addons">
+              <div class="control">
+                <input class="input" type="text" placeholder="Search City for Hotels">
+              </div>
+              <div class="control">
+                <a class="button is-info has-background-dark">
+                  Search
+                </a>
+              </div>
+            </div>
+            <div class="field has-addons">
+              <div  idclass="control">
+                <input class="input" type="text" placeholder="Search City for Food">
+              </div>
+              <div class="control">
+                <a class="button is-info has-background-dark ">
+                  Search
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+  </header>
+      <!--********WIDGET CALENDER*******-->
+  <div class="datePicker">
+    <p class="searchBox">Check In Date: <input type="text" id="datepicker-1" class="input"></p>
+    <p class="searchBox">Check Out Date: <input type="text" id="datepicker-2" class="input"></p>
+  </div>
+  <button id="getDates" class="button is-dark is-small">Submit</button>
+    <!-- ****** BOTH CARD CONAINERS ***** -->
+    <main id="cardCon">
+          <!-- ********* FOOD CARD container *********** -->
+          <div id="fCard" class="columns is-mobile" style="justify-content:center; justify-content:space-around">
+            <div class="is-half" id="hotelID">
+              <!-- ********* HOTEL CARDS *********** -->    
+              <div class="card has-background-white">
+                <span class="card-header-icon-is-left heart heart-outline has-text-danger"></span>
+                <h2 class="card-header has-text-black">Hotel 1</h2>
+                <p class="card-content has-text-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
 
+              <div class="card has-background-white">
+               <span class="card-header-icon-is-left heart heart-outline has-text-danger"></span>
+                <h2 class="card-header has-text-black">Hotel 2</h2>
+                <p class="card-content has-text-black">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
 
+              <div class="card has-background-white">
+                <span class="card-header-icon-is-left heart heart-outline has-text-danger"></span>
+                <h2 class="card-header has-text-black">Hotel 3</h2>
+                <p class="card-content has-text-black">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </div>
 
+              <div class="card has-background-white">
+                <span class="card-header-icon-is-left heart heart-outline has-text-danger"></span>
+                <h2 class="card-header has-text-black">Hotel4</h2>
+                <p class="card-content has-text-black">Quisque eget ante eu augue mollis mattis a euismod velit.</p>
+              </div>
 
+              <div class="card has-background-white">
+                <span class="card-header-icon-is-left heart heart-outline has-text-danger"></span>
+                <h2 class="card-header has-text-black">Hotel 5</h2>
+                <p class="card-content has-text-black">Phasellus ullamcorper, purus et pellentesque dignissim, elit purus bibendum urna.</p>
+              </div> 
+            </div>
+              <!--********RESTAURANT CARD*********-->
+            <div class="is-half" id="restaurantID">
+              <div class="card has-background-white">
+                <span class="card-header-icon-is-right heart heart-outline has-text-danger "></span>
+                <h2 class="card-header has-text-black">Resturant 1</h2>
+                <p class="card-content has-text-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+              
+              <div class="card has-background-white">
+                <span class="card-header-icon-is-right heart heart-outline has-text-danger"></span>
+                <h2 class="card-header has-text-black">Resturant 2</h2>
+                <p class="card-content has-text-black">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
+              
+              <div class="card has-background-white">
+                <span class="card-header-icon-is-right heart heart-outline has-text-danger"></span>
+                <h2 class="card-header has-text-black">Resturant 3</h2>
+                <p class="card-content has-text-black">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              </div>
 
-    <footer>
-      
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="script.js"></script>
-    
+              <div class="card has-background-white">
+                <span class="card-header-icon-is-right heart heart-outline has-text-danger"></span>
+                <h2 class="card-header has-text-black">Resturant 4</h2>
+                <p class="card-content has-text-black">Quisque eget ante eu augue mollis mattis a euismod velit.</p>
+              </div>
+              
+              <div class="card has-background-white">
+                <span class="card-header-icon-is-right heart heart-outline has-text-danger"></span>
+                <h2 class="card-header has-text-black">Resturant 5</h2>
+                <p class="card-content has-text-black">Phasellus ullamcorper, purus et pellentesque dignissim, elit purus bibendum urna.</p>
+              </div>    
+            </div>
+          </div>
+    </main>
 </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="script.js"></script>
 </html>

@@ -6,7 +6,7 @@ Description:
 User is able to input a city and that city will pop up with hotels and restruants
 
 User Story: As a travler
-I want a site that can help me find the top hotels (4.5-5 stars only) and restaurants 4.5-5stars only
+I want a site that can help me find the top hotels (4.5-5 stars only) and restaurants 4-5stars only
 Then I can save them to my favorite list 
 So that I can start planning
 
@@ -37,13 +37,14 @@ Restaurant API
 site for API: https://rapidapi.com/apidojo/api/travel-advisor/
 Fetch calls:
  locations/search (Deprecating) : first call: https://travel-advisor.p.rapidapi.com/locations/search?query=san%20antonio&limit=30&offset=0&units=km&location_id=1&currency=USD&sort=relevance&lang=en_US  // this one has to be called first to get the location that the user put it, and then grab the location ID
- second call: https://travel-advisor.p.rapidapi.com/restaurants/list?location_id=60956&restaurant_tagcategory=10591&restaurant_tagcategory_standalone=10591&currency=USD&lunit=km&limit=30&min_rating=4.5&open_now=false&lang=en_US // this one is need after the first call bc it requires the location ID as a parameter to load the restaurants with a 4.5 rating or more
+ restaurants/list (Deprecated):second call: https://travel-advisor.p.rapidapi.com/restaurants/list?location_id=60956&restaurant_tagcategory=10591&restaurant_tagcategory_standalone=10591&currency=USD&lunit=km&limit=30&min_rating=4.5&open_now=false&lang=en_US // this one is need after the first call bc it requires the location ID as a parameter to load the restaurants with a 4.5 rating or more
+ https://docs.rapidapi.com/docs/configuring-api-authentication
  
 Hotel API:
 site for API: https://rapidapi.com/tipsters/api/priceline-com-provider/
 Fetch calls: 
- first call: https://priceline-com-provider.p.rapidapi.com/v1/hotels/locations?name=dallas&search_type=CITY // have to make this call first to get the city ID of whatever the user typed in, SO THEN we can access the hotels in that city
- second call: https://priceline-com-provider.p.rapidapi.com/v1/hotels/search?date_checkout=2023-07-23&sort_order=STAR&date_checkin=2023-07-22&location_id=3000035821&star_rating_ids=4.5%2C5.0&rooms_number=1 // this link will allow access to the hotels in the city
+ first call: https://priceline-com-provider.p.rapidapi.com/v1/hotels/locations?name=dallas&search_type=ALL // have to make this call first to get the city ID of whatever the user typed in, SO THEN we can access the hotels in that city
+ second call: https://priceline-com-provider.p.rapidapi.com/v1/hotels/search?date_checkout=2023-07-23&sort_order=STAR&date_checkin=2023-07-22&location_id=3000035821&star_rating_ids=4.5,5.0%2C5.0&rooms_number=1 // this link will allow access to the hotels in the city
 
 
 Overall: 

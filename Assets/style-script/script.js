@@ -92,13 +92,14 @@ the hotel fetch parameters, these functions provide the datepicker widget*/
 			}
 			try {
 				var imgURL = hotelListings.hotels[i].media.url; // picture of hotel
+				var addy = hotelListings.hotels[i]
 			} catch(e) {
 				console.log(e);
 			}
 			//still need to add the address
 			$(`#${id}`).children("#img").attr("src", imgURL);
 			$(`#${id}`).children("#hotelName").text(hotelName);
-			// need to append address here
+			// $(`#${id}`).children("#address").text()
 			id++
 			
 		}
@@ -125,8 +126,5 @@ the hotel fetch parameters, these functions provide the datepicker widget*/
 	  console.log(localStorage);
 	});
   });
-  function scrollToTop() {
-	window.scrollTo({top: 0, behavior: 'smooth'});
-  }
+
   
-  localStorage.setItem

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./Assets/style-script/style.css">
   <title>Git Food.Travel</title>
 </head>
 <!------- Navbar ------->
@@ -14,7 +14,7 @@
   <nav class="navbar sticky" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://bulma.io">
-        <img  src="assest/git-travel-logo.png">
+        <img  src="Assets/imgs/git-travel-logo.png">
       </a>
       <!-----Hamburger-------->
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -176,19 +176,22 @@
           </div>
     </main>
     <!-- ****** FOOTER ****** -->
-  <footer class="footer has-background-dark has-text-white">
-    <div class="content has-text-centered">
-      <p>
-        <strong>GIT FOOD.Travel</strong> by <a href="#">Kaileon Wallace, Nigel Poblete, and Kristin De Salme</a> 
-      </p>
-      <a href="#top" onclick="scrollToTop()" id="home-btn">Home</a>
-    </div>
-  </footer>
+
+
+     <div id="HeroFt" class="hero is-medium is-info">
+        <div class="hero-body columns">
+          <h1 class="column i-half title">GIT FOOD.Travel
+              <div class="subtitle"> by <a href="#">Kaileon Wallace, Nigel Poblete, and Kristin De Salme</a></div>
+          </h1>
+          <div class="column "> <button href="#top" onclick="scrollToTop()" id="home-btn" class="button is-large is-dark has-text-white text-is-center column">Home</button></div>
+        </div>
+     </div>
+
 </body>
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"></script>
   <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script  src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script  src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script  src="script.js"></script>
+  <script  src="./Assets/style-script/script.js"></script>
   </script>
 </html>

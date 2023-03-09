@@ -21,6 +21,8 @@ Nigel Poblete
 
 Kristin De Salme: Git Hub link: <a href="https://github.com/KR1ISTIN">KR1ISTIN</a>
 
+Kaileon Wallace: Github link: <a href="https://github.com/kaydubb10">kaydubb10</a>
+
 
 ## Tools Used
 Html

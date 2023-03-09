@@ -12,7 +12,7 @@ This site was designed for a traveler looking to find the most luxurious hotels 
  <br> 
 <a href="#">Link to GIT FOOD.Travel</a>
 
-![alt text](assest/travel.png)
+![alt text](/Assets/imgs/travel.png)
 
 
 ## Devs

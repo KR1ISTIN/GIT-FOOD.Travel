@@ -2,11 +2,19 @@ var getData = $("#getDates") //submit button on check in and out
 var checkIn = $("#datepicker-1") // check in input
 var checkOut = $("#datepicker-2") // check out input
 var cityHotel = $("#cityHotel") // gets value in search box for hotels 
+var foodBtn = $("#food") // food search button 
 const options = {
 	method: 'GET',
 	headers: {
 		'X-RapidAPI-Key': 'f7405bb471mshd0743285be682f2p1aecacjsncf8b70e2b390',
 		'X-RapidAPI-Host': 'priceline-com-provider.p.rapidapi.com'
+	}
+};
+const option = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'f7405bb471mshd0743285be682f2p1aecacjsncf8b70e2b390',
+		'X-RapidAPI-Host': 'travel-advisor.p.rapidapi.com'
 	}
 };
 
@@ -35,6 +43,7 @@ $(document).ready(function() {
 	});
   });
 
+  
 
 /*these two dates will update the input box with the 
 check in and out value so we can use it for 
@@ -83,17 +92,20 @@ the hotel fetch parameters, these functions provide the datepicker widget*/
 	.then(function(hotelListings) {
 		console.log(hotelListings); // will help navigate through array to get values you want
 		var id = 1; // is equal to each div hotel card
+		// var for address
 		var isNull = null;
 		for(var i = 0; i < 6; i++) {
 			try { // javascript says hey there might be an error here so let's try out this line of code first
 				var hotelName = hotelListings.hotels[i].name // logs top 5 hotel // here we write the code that is giving us an error
 			} catch(e) { // so if there is an error, we catch the error (e) and do something with it
-				console.log(e) // in this case, we console.log(e) the error so we know what it is and the program can "skip" the error to keep running and not stop here 
+				console.log(e) 
+				continue// in this case, we console.log(e) the error so we know what it is and the program can "skip" the error to keep running and not stop here 
 			}
 			try {
 				var imgURL = hotelListings.hotels[i].media.url; // picture of hotel
 			} catch(e) {
 				console.log(e);
+				continue
 			}
 			//still need to add the address
 			$(`#${id}`).children("#img").attr("src", imgURL);
@@ -106,7 +118,46 @@ the hotel fetch parameters, these functions provide the datepicker widget*/
 	})
 	.catch(err => console.error(err));
  }
- getData.on("click",checkDates) // when you click on submit button this function runs
+
+ 
+var foodSearch =  function(event) {
+	event.preventDefault();
+	var food = $("#findFood"); // this is targetting the input for food
+	var findFood = food.val(); // this is grabbing the value from input
+	
+	function returnFood(urlFood, param) {
+		return fetch(urlFood, param)
+		.then(function(response) {
+			return response.json()
+		})
+	}
+	returnFood(`https://travel-advisor.p.rapidapi.com/locations/search?query=${findFood}&offset=0&units=km&currency=USD&sort=relevance&lang=en_US`, option)
+	.then(function(foodFindings) { // gives us access to get location ID
+		console.log(foodFindings);
+		var locID = foodFindings.data[0].result_object.location_id // gets location ID
+		console.log(locID);
+
+		var restaurantSearch = `https://travel-advisor.p.rapidapi.com/restaurants/list?location_id=${locID}&limit=30&min_rating=4.0&open_now=false&lang=en_US`
+		returnFood(restaurantSearch, option) 
+		.then(function(foodListings) {
+			console.log(foodListings)
+			var id = 6;
+			for(var i = 0; i < 6; i++) {
+				var restaurantNames = foodListings.data[i].name // gets name of the restaurant
+				var foodImg = foodListings.data[i].photo.images.original.url // img of resturant
+				var webLink = foodListings.data[i].website // link to website 
+				//append three variables to page
+				id++
+			}
+		})
+	})
+}
+
+
+getData.on("click",checkDates) // when you click on submit button this function runs
+
+foodBtn.on("click", foodSearch) // when you click on the food search button, the foodSearch function will run 
+
 
   // when the heart icon is clicked on 
   var hearts = document.querySelectorAll('.heart');

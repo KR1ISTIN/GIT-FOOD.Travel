@@ -10,7 +10,8 @@ This site was designed for a traveler looking to find the most luxurious hotels 
  If the traveler also would like to search for the top restaurants in a city that only include a 4.5 stars and above, the traveler will input the city of their choice into the corosponding search box and press the button "search".
  The fice random restaurants will appear on the right column.
  <br> 
-<a href="#">Link to GIT FOOD.Travel</a>
+ Link to: 
+<a href=" https://kr1istin.github.io/Project-one/">GIT FOOD.Travel</a>
 
 ![alt text](/Assets/imgs/travel.png)
 
@@ -20,6 +21,8 @@ This site was designed for a traveler looking to find the most luxurious hotels 
 Nigel Poblete
 
 Kristin De Salme: Git Hub link: <a href="https://github.com/KR1ISTIN">KR1ISTIN</a>
+
+Kaileon Wallace: Github link: <a href="https://github.com/kaydubb10">kaydubb10</a>
 
 
 

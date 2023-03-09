@@ -21,8 +21,7 @@ $(document).ready(function() {
 	});
   });
 
-
-
+  
 /*these two dates will update the input box with the 
 check in and out value so we can use it for 
 the hotel fetch parameters, these functions provide the datepicker widget*/

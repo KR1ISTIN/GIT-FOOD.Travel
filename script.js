@@ -123,3 +123,7 @@ the hotel fetch parameters, these functions provide the datepicker widget*/
 	  console.log(localStorage);
 	});
   });
+  function scrollToTop() {
+	window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+  

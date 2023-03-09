@@ -3,10 +3,10 @@ Git Food.Travel (Title)
 Wireframe: https://wireframe.cc/egIqsm
 
 Description:
-User is able to input a city and that city will pop up with hotels and restruants of user choice 
+User is able to input a city and that city will pop up with hotels and restruants
 
 User Story: As a travler
-I want a site that can help me find hotels and a variety of restaurants
+I want a site that can help me find the top hotels (4.5-5 stars only) and restaurants 4-5stars only
 Then I can save them to my favorite list 
 So that I can start planning
 
@@ -22,28 +22,29 @@ THEN the favorite will be added to the favorite list found in the navbar
 THEN favorites will be added to localStorage
 
 Project Requirements:
-Use a CSS framework other than Bootstrap. 
+Use a CSS framework other than Bootstrap. ~
 Be deployed to GitHub Pages.
-Be interactive (i.e., accept and respond to user input).
-Use at least two server-side APIs.
-Does not use alerts, confirms, or prompts (use modals).
-Use client-side storage to store persistent data.
-Be responsive.
-Have a polished UI.
+Be interactive (i.e., accept and respond to user input). ~
+Use at least two server-side APIs. ~
+Does not use alerts, confirms, or prompts (use modals). ~
+Use client-side storage to store persistent data. ~
+Be responsive. ~
+Have a polished UI. ~
 Have a clean repository that meets quality coding standards (file structure, naming conventions, follows best practices for class/id naming conventions, indentation, quality comments, etc.).
 Have a quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
 
 Restaurant API
 site for API: https://rapidapi.com/apidojo/api/travel-advisor/
 Fetch calls:
- first call: https://travel-advisor.p.rapidapi.com/locations/search?query=san%20antonio&limit=30&offset=0&units=km&location_id=1&currency=USD&sort=relevance&lang=en_US  // this one has to be called first to get the location that the user put it, and then grab the location ID
- second call: https://travel-advisor.p.rapidapi.com/restaurants/list?location_id=60956&restaurant_tagcategory=10591&restaurant_tagcategory_standalone=10591&currency=USD&lunit=km&limit=30&min_rating=4.5&open_now=false&lang=en_US // this one is need after the first call bc it requires the location ID as a parameter to load the restaurants with a 4.5 rating or more
+ locations/search (Deprecating) : first call: https://travel-advisor.p.rapidapi.com/locations/search?query=san%20antonio&limit=30&offset=0&units=km&location_id=1&currency=USD&sort=relevance&lang=en_US  // this one has to be called first to get the location that the user put it, and then grab the location ID
+ restaurants/list (Deprecated):second call: https://travel-advisor.p.rapidapi.com/restaurants/list?location_id=60956&restaurant_tagcategory=10591&restaurant_tagcategory_standalone=10591&currency=USD&lunit=km&limit=30&min_rating=4.5&open_now=false&lang=en_US // this one is need after the first call bc it requires the location ID as a parameter to load the restaurants with a 4.5 rating or more
+ https://docs.rapidapi.com/docs/configuring-api-authentication
  
 Hotel API:
 site for API: https://rapidapi.com/tipsters/api/priceline-com-provider/
 Fetch calls: 
- first call: https://priceline-com-provider.p.rapidapi.com/v1/hotels/locations?name=dallas&search_type=CITY // have to make this call first to get the city ID of whatever the user typed in, SO THEN we can access the hotels in that city
- second call: https://priceline-com-provider.p.rapidapi.com/v1/hotels/search?date_checkout=2023-07-23&sort_order=STAR&date_checkin=2023-07-22&location_id=3000035821&star_rating_ids=4.5%2C5.0&rooms_number=1 // this link will allow access to the hotels in the city
+ first call: https://priceline-com-provider.p.rapidapi.com/v1/hotels/locations?name=dallas&search_type=ALL // have to make this call first to get the city ID of whatever the user typed in, SO THEN we can access the hotels in that city
+ second call: https://priceline-com-provider.p.rapidapi.com/v1/hotels/search?date_checkout=2023-07-23&sort_order=STAR&date_checkin=2023-07-22&location_id=3000035821&star_rating_ids=4.5,5.0%2C5.0&rooms_number=1 // this link will allow access to the hotels in the city
 
 
 Overall: 
@@ -74,14 +75,39 @@ LAYOUT for Body:
         2) restaurant description 
     C) Inside the container create 2 columns
         1) inside each column horizontal cards are needed (maybe 5 on each side)
-        2)buttons are the side of each card so user can press to add to favorite
+        2)buttons are on each card so user can press to add to favorite
             - the favorite button will need a event listener 
-            -maybe the button will change if clicked (if there is time)
+            -maybe the button will change if clicked 
             -when added to favorites, it also needs to be added to localStoreage
                 -localStorage will probably need to use JSON pase and stringify since favorites will need to be added in an array in localStorage
 
 1) user types in city for food
 - add cick event on that that search button 
 - the value needs to get passed in from search bar 
--
+- the value will then be used to help call the fetch
+- so when search button is clicked on food, the fetch needs to be called. 
+- refer to line 39 for fetch calls 
+- city ID needs to be stored in a variable 
+- get location ID and use it for second fetch call
+-  second fetch call will get name, and website
+- loop through array to access object data: name and url (if name maybe thumbnail photo)
+- input to page
+- each card needs to equal new Data
+2)
+- user inputs city for hotel search 
+- need to get the value in a variable in search bar
+- the value of the input for search, we need to access the location ID
+- the location ID will then be used in second fetch call 
+- the user also needs to choose a check in and check out date
+- get the value of check in and out and set to variable (already done)
+- then after retreiving data values from search and check in / our dates
+- the fetch call will then run fully on the submit button
+- access the name of hotel and website link (maybe thumbnail if possible)
+-input data on to page
+- store in local storage in object
 
+FOR BOTH:
+we will need a for loop through data
+Each card.name of hotel or restaurant should have an their own ID
+Each card.website or description area of hotel or restaurant should have an their own ID
+Add a conditional statement for hotels if no 4.5-5 star hotels are found in that city

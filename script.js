@@ -1,14 +1,28 @@
+var getData = $("#getDates") //submit button on check in and out
+var checkIn = $("#datepicker-1") // check in input
+var checkOut = $("#datepicker-2") // check out input
+var cityHotel = $("#cityHotel") // gets value in search box for hotels 
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': 'f7405bb471mshd0743285be682f2p1aecacjsncf8b70e2b390',
+		'X-RapidAPI-Host': 'priceline-com-provider.p.rapidapi.com'
+	}
+};
+
+// *********** Options Exmaple ***********  just for explaination only \\
+// if I pass options here as ${options}, I will get [object Object]
+// if I pass options here simply as options, I will get the method and headers needed
+console.log(`${options}`); // outputs [object Object]
+console.log(options); // outputs {method: 'GET', headers: {…}} ** aka what we want to see!! **
+// *********** Options Exmaple *********** \\
+
 
 // *********** Nav Bar Timer *********** \\
 setInterval(function() {
     $('#navTime').text(dayjs().format(' MMMM D, YYYY h:mm A '));
 }, 1000);
 // *********** Nav Bar Timer *********** \\
-
-
-var getData = $("#getDates") //submit button on check in and out
-var checkIn = $("#datepicker-1") // check in input
-var checkOut = $("#datepicker-2") // check out input
 
 // this is for the burger menu to become active
 $(document).ready(function() {
@@ -22,6 +36,7 @@ $(document).ready(function() {
   });
 
   
+
 /*these two dates will update the input box with the 
 check in and out value so we can use it for 
 the hotel fetch parameters, these functions provide the datepicker widget*/
@@ -35,26 +50,64 @@ the hotel fetch parameters, these functions provide the datepicker widget*/
 	dateFormat:"yy-mm-dd", 
 	}); 
  });
- // this function saves the check in and check out date
+
  var checkDates = function (event) {
 	event.preventDefault();
+	var searchHotel = cityHotel.val(); // value for search city box for hotels
 	var inDate = checkIn.val(); //check in widget value
 	var outDate = checkOut.val(); // check out widget value
-	if((inDate === "") || (outDate === "")){ // if user does not fill in both widget dates then input box will outline in red
+	if((inDate === "") || (outDate === "" || cityHotel === "")){ // if user does not fill in both widget dates then input box will outline in red
 		$("#datepicker-1").addClass("is-danger");
 		$("#datepicker-2").addClass("is-danger");
+		cityHotel.addClass("is-danger");
 	} else {
 		$("#datepicker-1").removeClass("is-danger");
 		$("#datepicker-2").removeClass("is-danger");
+		cityHotel.removeClass("is-danger");
 	}
-	console.log(inDate);
-	console.log(outDate);
-	var inDate = checkIn.val("");  // check in and out values are set to a string to clear input boxes are hitting submit
-	var outDate = checkOut.val("");
+	
+	function returnHotel(urlForHotels, params) {
+		return fetch(urlForHotels, params)
+		.then(function(response) {
+			return response.json()
+		})
+	}
+	returnHotel(`https://priceline-com-provider.p.rapidapi.com/v1/hotels/locations?name=${searchHotel}&search_type=ALL`, options)
+	.then(function(data) {
+		console.log(data) //fetches the city data
+		var cityID = data[0].cityID // gets the city ID for each city that the user puts in
+		console.log(cityID) //confirming we attacked right way to access city ID
+
+		var hotelsURL = `https://priceline-com-provider.p.rapidapi.com/v1/hotels/search?date_checkout=${outDate}&sort_order=HDR&date_checkin=${inDate}&location_id=${cityID}&star_rating_ids=4.0,5.0%2C5.0&rooms_number=1`;
+	
+	returnHotel(hotelsURL, options) // this is going to return hotels in the city
+	.then(function(hotelListings) {
+		console.log(hotelListings); // will help navigate through array to get values you want
+		var id = 1; // is equal to each div hotel card
+		var isNull = null;
+		for(var i = 0; i < 6; i++) {
+			try { // javascript says hey there might be an error here so let's try out this line of code first
+				var hotelName = hotelListings.hotels[i].name // logs top 5 hotel // here we write the code that is giving us an error
+			} catch(e) { // so if there is an error, we catch the error (e) and do something with it
+				console.log(e) // in this case, we console.log(e) the error so we know what it is and the program can "skip" the error to keep running and not stop here 
+			}
+			try {
+				var imgURL = hotelListings.hotels[i].media.url; // picture of hotel
+			} catch(e) {
+				console.log(e);
+			}
+			//still need to add the address
+			$(`#${id}`).children("#img").attr("src", imgURL);
+			$(`#${id}`).children("#hotelName").text(hotelName);
+			// need to append address here
+			id++
+		}
+
+	})
+	})
+	.catch(err => console.error(err));
  }
- getData.on("click", checkDates) // when you click on submit button this function runs
-
-
+ getData.on("click",checkDates) // when you click on submit button this function runs
 
   // when the heart icon is clicked on 
   var hearts = document.querySelectorAll('.heart');
@@ -62,6 +115,7 @@ the hotel fetch parameters, these functions provide the datepicker widget*/
 	heart.addEventListener('click', () => {
 	  heart.classList.toggle('clicked');
 	  var cardTitle = heart.nextElementSibling.textContent;
+
 	  if (heart.classList.contains('clicked')) {
 		localStorage.setItem(cardTitle, true);
 	  } else {

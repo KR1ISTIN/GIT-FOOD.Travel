@@ -1,43 +1,39 @@
 # GIT FOOD.Travel
+
 ## Description
-----------------------------------
-A Webpage that will provide key travel information
-
-- As a frequent traveler
-- its is very nice to know the hotels available and resturaunts in a specific area for future travel shenanigans!
-
+This site was designed for a traveler looking to find the most luxurious hotels and restaurants in any city they wish to desire. This project allowed us to work as a group in a agile enviroment to practice our communication skills, resolving merge confilcts and practice our coding abilities including: Bulma, JS, JQuery, HTML, CSS, Font Awesome, and incorporating two APIs. As a group we look forward to expanding this project further. 
 
 ## Usage
-----------------------------------
--       to search for hotels, enter a check-in and check-out date as well as a city name in the search bar for hotels, this will bring up the top 5 hotels with a 4 star rating or higher, and it will be displayed on the left column of cards below!
 
--       to search for resturaunts, enter a city name in the resturaunts search bar and it will retrieve the top 5 resturaunts which will be displayed on the right column of cards below!
+ The traveler will simply enter a city of their choice into the search bar then proceed to add a check in and check out date, click submit. The search will find five random hotels with a rating of 4 stars and above only. The hotels will populate on the left column.
 
-![alt text](assest/gitfood-travel-screenshot.jpg)
+ If the traveler also would like to search for the top restaurants in a city that only include a 4.5 stars and above, the traveler will input the city of their choice into the corosponding search box and press the button "search".
+ The fice random restaurants will appear on the right column.
+ <br> 
+<a href="#">Link to GIT FOOD.Travel</a>
 
----------
-# Credits
----------
+![alt text](assest/travel.png)
+
 
 ## Devs
 
-- Nigel Poblete
-- 
--
+Nigel Poblete
+
+Kristin De Salme: Git Hub link: <a href="https://github.com/KR1ISTIN">KR1ISTIN</a>
+
 
 ## Tools Used
+Html
+Css
+JavaScript
+Bulma
+Font Awesome
 
-- Html
-- Css
-- JavaScript
-- Bulma
-- Font Awesome
+## APIs
 
-## API'S Used
-
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-
-----------
+Priceline Rapid API: <a href="https://rapidapi.com/tipsters/api/priceline-com-provider/">Priceline API</a>
+<br>
+Trip Advisor Rapid API: <a href="https://rapidapi.com/apidojo/api/travel-advisor/">Trip Advisor API</a>
 
 ## License
 N/A

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,23 +9,21 @@
   <link rel="stylesheet" href="style.css">
   <title>Git Food.Travel</title>
 </head>
-
-
-<!--  Navbar 1-->
+<!------- Navbar ------->
 <body>
   <nav class="navbar sticky" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://bulma.io">
         <img  src="assest/git-travel-logo.png">
       </a>
-  
+      <!-----Hamburger-------->
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </a>
     </div>
-  
+    <!--------Nav Links-------->
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
         <a class="navbar-item">
@@ -51,6 +48,9 @@
             </a>
             <hr class="navbar-divider">
           </div>
+          <div id="timeBox" class="p-3">
+            <div id="navTime" class="has-text-white"></div>
+          </div>
         </div>
       </div>
       <div class="navbar-end">
@@ -60,15 +60,9 @@
         </div>
       </div>
     </div>
-
-        <div>
-        
-      </div>
+  <!----------Date JS----------->
+  <h1 id="navTime" class="has-background-dark has-text-white pl-1"></h1>  
   </nav>
-      <h1 id="navTime" class="has-background-dark has-text-white pl-1"></h1>
-
-  </nav>
-
     <!-- ****** HEADER ****** -->
     <header>
       <section class="hero is-large is-info">
@@ -83,7 +77,7 @@
           <div id="search" class="columns is-desktop is-multiline">
             <div class="field has-addons">
               <div class="control">
-                <input class="input" type="text" placeholder="Search City for Hotels">
+                <input  id="cityHotel"class="input" type="text" placeholder="Search City for Hotels">
               </div>
             </div>
             <div class="field has-addons">
@@ -98,47 +92,53 @@
             </div>
           </div>
         </section>
-  </header>
+    </header>
       <!--********WIDGET CALENDER*******-->
   <div class="datePicker">
     <p class="searchBox">Check In Date: <input type="text" id="datepicker-1" class="input"></p>
     <p class="searchBox">Check Out Date: <input type="text" id="datepicker-2" class="input"></p>
   </div>
   <button id="getDates" class="button is-dark is-small">Submit</button>
+  <div id="popUP" style="text-align: center; color: white"></div>
     <!-- ****** BOTH CARD CONAINERS ***** -->
-    <main id="cardCon">
+     <main id="cardCon">
           <!-- ********* FOOD CARD container *********** -->
           <div id="fCard" class="columns is-mobile" style="justify-content:center; justify-content:space-around">
             <div class="is-half" id="hotelID">
               <!-- ********* HOTEL CARDS *********** -->    
-              <div class="card has-background-white">
+              <div id="1" class="card has-background-white">
                 <span class="card-header-icon-is-left heart heart-outline has-text-danger"></span>
-                <h2 class="card-header has-text-black">Hotel 1</h2>
-                <p class="card-content has-text-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <img  id="img">
+                <h2 id="hotelName"class="card-header has-text-black">Hotel 1</h2>
+                <p id="address"class="card-content has-text-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
               </div>
 
-              <div class="card has-background-white">
+              <div id="2" class="card has-background-white">
                <span class="card-header-icon-is-left heart heart-outline has-text-danger"></span>
-                <h2 class="card-header has-text-black">Hotel 2</h2>
-                <p class="card-content has-text-black">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+               <img  id="img">
+                <h2 id="hotelName"class="card-header has-text-black">Hotel 2</h2>
+                <p id="address"class="card-content has-text-black">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
               </div>
 
-              <div class="card has-background-white">
+              <div id="3" class="card has-background-white">
                 <span class="card-header-icon-is-left heart heart-outline has-text-danger"></span>
-                <h2 class="card-header has-text-black">Hotel 3</h2>
-                <p class="card-content has-text-black">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <img  id="img">
+                <h2 id="hotelName"class="card-header has-text-black">Hotel 3</h2>
+                <p id="address"class="card-content has-text-black">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
               </div>
 
-              <div class="card has-background-white">
+              <div id="4" class="card has-background-white">
                 <span class="card-header-icon-is-left heart heart-outline has-text-danger"></span>
-                <h2 class="card-header has-text-black">Hotel4</h2>
-                <p class="card-content has-text-black">Quisque eget ante eu augue mollis mattis a euismod velit.</p>
+                <img  id="img">
+                <h2 id="hotelName"class="card-header has-text-black">Hotel4</h2>
+                <p id="address"class="card-content has-text-black">Quisque eget ante eu augue mollis mattis a euismod velit.</p>
               </div>
 
-              <div class="card has-background-white">
+              <div id="5" class="card has-background-white">
                 <span class="card-header-icon-is-left heart heart-outline has-text-danger"></span>
-                <h2 class="card-header has-text-black">Hotel 5</h2>
-                <p class="card-content has-text-black">Phasellus ullamcorper, purus et pellentesque dignissim, elit purus bibendum urna.</p>
+                <img  id="img">
+                <h2 id="hotelName"class="card-header has-text-black">Hotel 5</h2>
+                <p id="address"class="card-content has-text-black">Phasellus ullamcorper, purus et pellentesque dignissim, elit purus bibendum urna.</p>
               </div> 
             </div>
               <!--********RESTAURANT CARD*********-->
@@ -176,9 +176,10 @@
           </div>
     </main>
 </body>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"></script>
+  <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script  src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script  src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script  src="script.js"></script>
+  </script>
 </html>

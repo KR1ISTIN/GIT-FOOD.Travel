@@ -13,7 +13,7 @@ This site was designed for a traveler looking to find the most luxurious hotels 
  Link to: 
 <a href=" https://kr1istin.github.io/Project-one/">GIT FOOD.Travel</a>
 
-![alt text](assest/travel.png)
+![alt text](/Assets/imgs/travel.png)
 
 
 ## Devs
@@ -21,6 +21,8 @@ This site was designed for a traveler looking to find the most luxurious hotels 
 Nigel Poblete
 
 Kristin De Salme: Git Hub link: <a href="https://github.com/KR1ISTIN">KR1ISTIN</a>
+
+Kaileon Wallace: Github link: <a href="https://github.com/kaydubb10">kaydubb10</a>
 
 
 ## Tools Used

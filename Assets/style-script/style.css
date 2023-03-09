@@ -1,6 +1,6 @@
 
 .hero {
-    background-image: url("assest/nils-nedel-ONpGBpns3cs-unsplash.jpg");
+    background-image: url("/Assets/imgs/nils-nedel-ONpGBpns3cs-unsplash.jpg");
     background-repeat: none;
     background-size: cover;
 }
@@ -59,11 +59,7 @@ main {
     color: #f00;
   }
 
-.hero {
-    background-image: url("assest/nils-nedel-ONpGBpns3cs-unsplash.jpg");
-    background-repeat: none;
-    background-size: cover;
-}
+
 
 #search {
     display: flex;
@@ -104,6 +100,25 @@ html {
   background: linear-gradient(328deg, rgba(47,46,44,1) 0%, rgba(0,0,0,1) 100%);
 }
 
+#timeBox {
+  background: linear-gradient(328deg, rgba(47,46,44,1) 0%, rgba(0,0,0,1) 100%)
+}
+
+p {
+  size: larger;
+  color: #050000;
+}
+a {
+  size: larger;
+  color: #050000;
+}
+footer 
+  {
+    background-image: url("assest/nils-nedel-ONpGBpns3cs-unsplash.jpg");
+    background-repeat: none;
+    background-size: cover;
+}
+
 @media screen and (max-width: 770px) {
   #hotelID {
     width: 50%;
@@ -138,4 +153,3 @@ html {
       left: 0;
     }
   }
-

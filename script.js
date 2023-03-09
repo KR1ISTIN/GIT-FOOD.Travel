@@ -107,6 +107,50 @@ the hotel fetch parameters, these functions provide the datepicker widget*/
 	.catch(err => console.error(err));
  }
  getData.on("click",checkDates) // when you click on submit button this function runs
+ 
+ 
+ function returnRest(urlForRest, params) {
+	return fetch(urlForRest, params)
+	.then(function(response) {
+		return response.json()
+	})
+}
+returnRest(`https://priceline-com-provider.p.rapidapi.com/v1/hotels/locations?name=${searchHotel}&search_type=ALL`, options)
+.then(function(data) {
+	console.log(data) //fetches the city data
+	var cityID = data[0].cityID // gets the city ID for each city that the user puts in
+	console.log(cityID) //confirming we attacked right way to access city ID
+
+	var RestURL = `https://priceline-com-provider.p.rapidapi.com/v1/hotels/search?date_checkout=${outDate}&sort_order=HDR&date_checkin=${inDate}&location_id=${cityID}&star_rating_ids=4.0,5.0%2C5.0&rooms_number=1`;
+
+returnRest(RestURL, options) // this is going to return hotels in the city
+.then(function(RestListings) {
+	console.log(RestListings); // will help navigate through array to get values you want
+	var id = 1; // is equal to each div hotel card
+	var isNull = null;
+	for(var i = 0; i < 6; i++) {
+		try { // javascript says hey there might be an error here so let's try out this line of code first
+			var RestName = RestListings.rests[i].name // logs top 5 hotel // here we write the code that is giving us an error
+		} catch(e) { // so if there is an error, we catch the error (e) and do something with it
+			console.log(e) // in this case, we console.log(e) the error so we know what it is and the program can "skip" the error to keep running and not stop here 
+		}
+		try {
+			var imgURL = RestListings.rests[i].media.url; // picture of restaurant 
+		} catch(e) {
+			console.log(e);
+		}
+		//still need to add the address
+		$(`#${id}`).children("#img").attr("src", imgURL);
+		$(`#${id}`).children("#RestName").text(RestName);
+		// need to append address here
+		id++
+	}
+
+})
+})
+.catch(err => console.error(err));
+
+getData.on("click",checkDates) // when you click on submit button this function runs
 
   // when the heart icon is clicked on 
   var hearts = document.querySelectorAll('.heart');

@@ -124,9 +124,6 @@ the hotel fetch parameters, these functions provide the datepicker widget*/
 			// addressInfo.textContent = `${address}, ${city}, ${provinceCode} ${zip}, ${country} (${countryCode})`;
 			// ****** NIGELS CODE *****
 			id++
-			
-
-
 		}
 
 	})

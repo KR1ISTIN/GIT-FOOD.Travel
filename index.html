@@ -25,7 +25,7 @@
     </div>
     <!--------Nav Links-------->
     <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
+      <div  class="navbar-start">
         <a class="navbar-item">
           Home
         </a>
@@ -37,14 +37,12 @@
             Favorites
           </a>
           <div class="navbar-dropdown">
-            <a class="navbar-item">
-              Favorite Food
+            <a id="faveId" class="navbar-item">
+              Hotels
             </a>
-            <a class="navbar-item">
-              Favorite Hotels
-            </a>
-            <a class="navbar-item">
-              All Favorites 
+
+            <a id="faveId" class="navbar-item">
+              Resturant
             </a>
             <hr class="navbar-divider">
           </div>
@@ -63,7 +61,7 @@
   </nav>
     <!-- ****** HEADER ****** -->
     <header>
-      <section class="hero is-large">
+      <section  id= "TOP" class="hero is-large">
           <div class="hero-body">
             <p class="title" style="color:white">
               GIT FOOD.Travel
@@ -183,13 +181,18 @@
           </div>
     </main>
     <!-- ****** FOOTER ****** -->
+
     <footer>
-      <div id="HeroFt" class="hero is-medium is-info">
-        <div class="hero-body columns">
-          <h1 class="column i-half title">GIT FOOD.Travel
-              <div class="subtitle"> by <a href="#">Kaileon Wallace, Nigel Poblete, and Kristin De Salme</a></div>
+     <div id="HeroFt" class="footer hero is-medium is-info">
+        <div class="content has-text-centered hero-body columns">
+          <h1 class="column i-half title has-text-white mb-6">GIT FOOD.Travel
+              <div class="subtitle has-text-white"> by 
+                <a href="https://github.com/kaydubb10" class="button is-success is-rounded " id= "kay">Kaileon Wallace</a>
+                <a href="https://github.com/evohat3" class="button is-warning is-rounded" id= "nigel">Nigel Poblete</a> 
+                and 
+                <a href="https://github.com/KR1ISTIN" class="button is-danger is-rounded" id= "kristin">Kristin De Salme</a>
           </h1>
-          <div class="column "><button href="#top" onclick="scrollToTop()" id="home-btn" class="button is-large is-dark has-text-white text-is-center column">Home</button></div>
+          <div class="column content has-text-centered"> <a href= "#TOP" id="home-btn" class="button is-medium is-dark has-text-white text-is-center">Home</a></div>
         </div>
      </div>
     </footer>

@@ -6,16 +6,16 @@ var foodBtn = $("#food") // food search button
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': 'f7405bb471mshd0743285be682f2p1aecacjsncf8b70e2b390',
+		'X-RapidAPI-Key': '8ae759da67msh17660d17a33b0aep134bc6jsn4d902f5fbb19',
 		'X-RapidAPI-Host': 'priceline-com-provider.p.rapidapi.com'
 	}
 };
 const option = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': 'f7405bb471mshd0743285be682f2p1aecacjsncf8b70e2b390',
-		'X-RapidAPI-Host': 'travel-advisor.p.rapidapi.com'
-	}
+    method: 'GET',
+    headers: {
+        'X-RapidAPI-Key': 'f7405bb471mshd0743285be682f2p1aecacjsncf8b70e2b390',
+        'X-RapidAPI-Host': 'travel-advisor.p.rapidapi.com'
+    }
 };
 
 // *********** Options Exmaple ***********  just for explaination only \\
@@ -43,7 +43,6 @@ $(document).ready(function() {
 	});
   });
 
-  
 
 /*these two dates will update the input box with the 
 check in and out value so we can use it for 
@@ -91,27 +90,43 @@ the hotel fetch parameters, these functions provide the datepicker widget*/
 	returnHotel(hotelsURL, options) // this is going to return hotels in the city
 	.then(function(hotelListings) {
 		console.log(hotelListings); // will help navigate through array to get values you want
+
 		var id = 1; // is equal to each div hotel card
-		// var for address
 		var isNull = null;
 		for(var i = 0; i < 6; i++) {
 			try { // javascript says hey there might be an error here so let's try out this line of code first
 				var hotelName = hotelListings.hotels[i].name // logs top 5 hotel // here we write the code that is giving us an error
 			} catch(e) { // so if there is an error, we catch the error (e) and do something with it
-				console.log(e) 
-				continue// in this case, we console.log(e) the error so we know what it is and the program can "skip" the error to keep running and not stop here 
+				console.log(e) // in this case, we console.log(e) the error so we know what it is and the program can "skip" the error to keep running and not stop here 
 			}
 			try {
 				var imgURL = hotelListings.hotels[i].media.url; // picture of hotel
+		
+				// ****** Nigel's Variables ******
+				var street = hotelListings.hotels[i].location.address.addressLine1;
+				var city = hotelListings.hotels[i].location.address.cityName;
+				var state = hotelListings.hotels[i].location.address.provinceCode;
+				var zip = hotelListings.hotels[i].location.address.zip
+				var hotelInfo = (street + ', ' + city + ', ' + state + ' ' + zip)
+				// ****** Nigel's Variables ******
 			} catch(e) {
 				console.log(e);
-				continue
 			}
-			//still need to add the address
 			$(`#${id}`).children("#img").attr("src", imgURL);
 			$(`#${id}`).children("#hotelName").text(hotelName);
-			// need to append address here
+			// ****** NIGELS CODE ******
+			$(`#${id}`).children("#hotelName").attr("class", "title is-4");
+			$(`#${id}`).children("#address").text("Address: " + hotelInfo);
+			$(`#${id}`).children("#address").attr("class", "subtitle is-6")
+			// ****** Play Around Notes *******
+			// TODO Research hotelListings.hotels[i].hotelFeatures.hotelFeatures[i]; mabe can be added in with description?
+
+			// addressInfo.textContent = `${address}, ${city}, ${provinceCode} ${zip}, ${country} (${countryCode})`;
+			// ****** NIGELS CODE *****
 			id++
+			
+
+
 		}
 
 	})

@@ -1,6 +1,6 @@
 
 .hero {
-    background-image: url("/Assets/imgs/nils-nedel-ONpGBpns3cs-unsplash.jpg");
+    background-image: url("../imgs/nils-nedel-ONpGBpns3cs-unsplash.jpg");
     background-repeat: none;
     background-size: cover;
 }
@@ -112,15 +112,6 @@ border-style: solid;
 
 html {
   background: linear-gradient(328deg, rgba(47,46,44,1) 0%, rgba(0,0,0,1) 100%);
-}
-
-
-
-
-footer {
-  background-image: url("/Assets/imgs/nils-nedel-ONpGBpns3cs-unsplash.jpg");
-    background-repeat: none;
-    background-size: cover;
 }
 
 @media screen and (max-width: 770px) {

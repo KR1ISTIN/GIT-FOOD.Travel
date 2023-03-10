@@ -1,6 +1,6 @@
 
 .hero {
-    background-image: url("/Assets/imgs/nils-nedel-ONpGBpns3cs-unsplash.jpg");
+    background-image: url("./Assets/imgs/nils-nedel-ONpGBpns3cs-unsplash.jpg");
     background-repeat: none;
     background-size: cover;
 }

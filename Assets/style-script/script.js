@@ -5,7 +5,7 @@ var cityHotel = $("#cityHotel") // gets value in search box for hotels
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': 'f7405bb471mshd0743285be682f2p1aecacjsncf8b70e2b390',
+		'X-RapidAPI-Key': '8ae759da67msh17660d17a33b0aep134bc6jsn4d902f5fbb19',
 		'X-RapidAPI-Host': 'priceline-com-provider.p.rapidapi.com'
 	}
 };
@@ -82,6 +82,7 @@ the hotel fetch parameters, these functions provide the datepicker widget*/
 	returnHotel(hotelsURL, options) // this is going to return hotels in the city
 	.then(function(hotelListings) {
 		console.log(hotelListings); // will help navigate through array to get values you want
+
 		var id = 1; // is equal to each div hotel card
 		var isNull = null;
 		for(var i = 0; i < 6; i++) {
@@ -92,16 +93,35 @@ the hotel fetch parameters, these functions provide the datepicker widget*/
 			}
 			try {
 				var imgURL = hotelListings.hotels[i].media.url; // picture of hotel
-				var addy = hotelListings.hotels[i]
+		
+				// ****** Nigel's Variables ******
+				var street = hotelListings.hotels[i].location.address.addressLine1;
+				var city = hotelListings.hotels[i].location.address.cityName;
+				var state = hotelListings.hotels[i].location.address.provinceCode;
+				var zip = hotelListings.hotels[i].location.address.zip
+				var hotelInfo = (street + ', ' + city + ', ' + state + ' ' + zip)
+				// ****** Nigel's Variables ******
 			} catch(e) {
 				console.log(e);
 			}
-			//still need to add the address
 			$(`#${id}`).children("#img").attr("src", imgURL);
 			$(`#${id}`).children("#hotelName").text(hotelName);
-			// $(`#${id}`).children("#address").text()
+			// ****** NIGELS CODE ******
+			$(`#${id}`).children("#hotelName").attr("class", "title is-4");
+			$(`#${id}`).children("#address").text("Address: " + hotelInfo);
+			$(`#${id}`).children("#address").attr("class", "subtitle is-6")
+			// ****** Play Around Notes *******
+			// TODO Research hotelListings.hotels[i].hotelFeatures.hotelFeatures[i]; mabe can be added in with description?
+
+			// addressInfo.textContent = `${address}, ${city}, ${provinceCode} ${zip}, ${country} (${countryCode})`;
+			// ****** NIGELS CODE ******
+	
+			
+			
 			id++
 			
+
+
 		}
 
 	})
@@ -109,7 +129,11 @@ the hotel fetch parameters, these functions provide the datepicker widget*/
 	.catch(err => console.error(err));
  }
 
- getData.on("click",checkDates)  // when you click on submit button this function runs
+ getData.on("click",checkDates)  {
+
+
+	
+ } // when you click on submit button this function runs
 
   // when the heart icon is clicked on 
   var hearts = document.querySelectorAll('.heart');

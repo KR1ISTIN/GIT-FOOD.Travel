@@ -55,6 +55,9 @@ the hotel fetch parameters, these functions provide the datepicker widget*/
 	var searchHotel = cityHotel.val(); // value for search city box for hotels
 	var inDate = checkIn.val(); //check in widget value
 	var outDate = checkOut.val(); // check out widget value
+
+	saveHist ()
+
 	if((inDate === "") || (outDate === "" || cityHotel === "")){ // if user does not fill in both widget dates then input box will outline in red
 		$("#datepicker-1").addClass("is-danger");
 		$("#datepicker-2").addClass("is-danger");
@@ -116,11 +119,7 @@ the hotel fetch parameters, these functions provide the datepicker widget*/
 			// addressInfo.textContent = `${address}, ${city}, ${provinceCode} ${zip}, ${country} (${countryCode})`;
 			// ****** NIGELS CODE ******
 	
-			
-			
 			id++
-			
-
 
 		}
 
@@ -132,19 +131,24 @@ the hotel fetch parameters, these functions provide the datepicker widget*/
  getData.on("click",checkDates) // when you click on submit button this function runs
 
   // when the heart icon is clicked on 
-  var hearts = document.querySelectorAll('.heart');
-  hearts.forEach((heart) => {
-	heart.addEventListener('click', () => {
-	  heart.classList.toggle('clicked');
-	  var cardTitle = heart.nextElementSibling.textContent;
+//   var hearts = document.querySelectorAll('.heart');
+//   hearts.forEach((heart) => {
+// 	heart.addEventListener('click', () => {
+// 	  heart.classList.toggle('clicked');
+// 	  var cardTitle = heart.nextElementSibling.textContent;
 
-	  if (heart.classList.contains('clicked')) {
-		localStorage.setItem(cardTitle, true);
-	  } else {
-		localStorage.removeItem(cardTitle);
-	  }
-	  console.log(localStorage);
-	});
-  });
+// 	  if (heart.classList.contains('clicked')) {
+// 		localStorage.setItem(cardTitle, true);
+// 	  } else {
+// 		localStorage.removeItem(cardTitle);
+// 	  }
+// 	  console.log(localStorage);
+// 	});
+//   });
 
-  
+  function saveHist () {
+	searchHotel = cityHotel.val()
+
+	console.log(searchHotel)
+
+  }

@@ -143,16 +143,36 @@ var foodSearch =  function(event) {
 			console.log(foodListings)
 			var id = 6;
 			for(var i = 0; i < 6; i++) {
-				var restaurantNames = foodListings.data[i].name // gets name of the restaurant
-				var foodImg = foodListings.data[i].photo.images.original.url // img of resturant
-				var webLink = foodListings.data[i].website // link to website 
-				//append three variables to page
+				try { 
+					var restaurantNames = foodListings.data[i].name; // restaurant name
+				} catch(e) { 
+					console.log(e) 
+					continue
+				}
+				try {
+					var foodImg = foodListings.data[i].photo.images.original.url // picture of hotel
+				} catch(e) {
+					console.log(e);
+					continue
+				} try {
+					var webLink = foodListings.data[i].website // link to site
+				} catch(e) {
+					console.log(e)
+					continue
+				}
+			 
+				console.log(restaurantNames)
+				console.log(foodImg)
+				console.log(webLink)
+				$(`#${id}`).children("#foodName").text(restaurantNames);
+                $(`#${id}`).children("#img2").attr("src", foodImg);
+                $(`#${id}`).children("#link").attr("href", webLink);
 				id++
 			}
 		})
 	})
+	.catch(err => console.error(err));
 }
-
 
 getData.on("click",checkDates) // when you click on submit button this function runs
 
@@ -174,7 +194,16 @@ foodBtn.on("click", foodSearch) // when you click on the food search button, the
 	  console.log(localStorage);
 	});
   });
+
   function scrollToTop() {
 	window.scrollTo({top: 0, behavior: 'smooth'});
   }
   
+
+
+function saveFood(foodPlace) {
+	var dining = JSON.parse(localStorage.getItem("Restaurants")) || [];
+	if(!dining.includes(foodPlace)) {
+		
+	}
+}

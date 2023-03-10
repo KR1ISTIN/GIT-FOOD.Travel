@@ -75,12 +75,12 @@
           <div id="search" class="columns is-desktop is-multiline">
             <div class="field has-addons">
               <div class="control">
-                <input  id="cityHotel"class="input" type="text" placeholder="Search for Hotels: Austin, TX">
+                <input  id="cityHotel"class="input" type="text" placeholder="Search Hotels: Austin,TX">
               </div>
             </div>
             <div class="field has-addons">
               <div  idclass="control">
-                <input id ="findFood" class="input" type="text" placeholder="Search for Food: Austin,TX">
+                <input id ="findFood" class="input" type="text" placeholder="Search Food: Austin,TX">
               </div>
               <div class="control">
                 <a  id="food" class="button is-info has-background-dark ">
@@ -97,99 +97,102 @@
     <p class="searchBox">Check Out Date: <input type="text" id="datepicker-2" class="input"></p>
   </div>
   <button id="getDates" class="button is-dark is-small">Submit</button>
-  <div id="popUP" style="text-align: center; color: white"></div>
+  <div id="popUP" style="text-align: center; color: white"></div> <!--POP up quote-->
     <!-- ****** BOTH CARD CONAINERS ***** -->
-     <main id="cardCon">
-          <!-- ********* FOOD CARD container *********** -->
-          <div id="fCard" class="columns is-mobile" style="justify-content:center; justify-content:space-around">
+     <main>
+          <div  class="columns is-mobile" style="justify-content:center; justify-content:space-around">
             <div class="is-half" id="hotelID">
               <!-- ********* HOTEL CARDS *********** -->    
               <div id="1" class="card has-background-white">
                 <span class="card-header-icon-is-left heart heart-outline has-text-danger"></span>
                 <img  id="img">
-                <h2 id="hotelName"class="card-header has-text-black">Hotel 1</h2>
-                <p id="address"class="card-content has-text-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h2 id="hotelName"class="card-header has-text-black">Hotel Name</h2>
+                <p id="address"class="card-content has-text-black">Hotel Address:</p>
               </div>
 
               <div id="2" class="card has-background-white">
                <span class="card-header-icon-is-left heart heart-outline has-text-danger"></span>
                <img  id="img">
-                <h2 id="hotelName"class="card-header has-text-black">Hotel 2</h2>
-                <p id="address"class="card-content has-text-black">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <h2 id="hotelName"class="card-header has-text-black">Hotel Name</h2>
+                <p id="address"class="card-content has-text-black">Hotel Address:</p>
               </div>
 
               <div id="3" class="card has-background-white">
                 <span class="card-header-icon-is-left heart heart-outline has-text-danger"></span>
                 <img  id="img">
-                <h2 id="hotelName"class="card-header has-text-black">Hotel 3</h2>
-                <p id="address"class="card-content has-text-black">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <h2 id="hotelName"class="card-header has-text-black">Hotel Name</h2>
+                <p id="address"class="card-content has-text-black">Hotel Address:</p>
               </div>
 
               <div id="4" class="card has-background-white">
                 <span class="card-header-icon-is-left heart heart-outline has-text-danger"></span>
                 <img  id="img">
-                <h2 id="hotelName"class="card-header has-text-black">Hotel4</h2>
-                <p id="address"class="card-content has-text-black">Quisque eget ante eu augue mollis mattis a euismod velit.</p>
+                <h2 id="hotelName"class="card-header has-text-black">Hotel Name</h2>
+                <p id="address"class="card-content has-text-black">Hotel Address:</p>
               </div>
 
               <div id="5" class="card has-background-white">
                 <span class="card-header-icon-is-left heart heart-outline has-text-danger"></span>
                 <img  id="img">
-                <h2 id="hotelName"class="card-header has-text-black">Hotel 5</h2>
-                <p id="address"class="card-content has-text-black">Phasellus ullamcorper, purus et pellentesque dignissim, elit purus bibendum urna.</p>
+                <h2 id="hotelName"class="card-header has-text-black">Hotel Name</h2>
+                <p id="address"class="card-content has-text-black">Hotel Address:</p>
               </div> 
             </div>
               <!--********RESTAURANT CARD*********-->
-            <div  id="6" class="is-half">
-              <div class="card has-background-white">
+            <div class="is-half">
+              <div id="6"class="card has-background-white">
                 <span class="card-header-icon-is-right heart heart-outline has-text-danger "></span>
                 <img  id="img2">
-                <h2  id="foodName" class="card-header has-text-black">Resturant 1</h2>
-                <p id="link"class="card-content has-text-black">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <h2  id="foodName" class="card-header has-text-black">Resturant Name</h2>
+                <p class="card-content has-text-black">Link To Site:</p>
+                <a target="_blank" id="link">Make Reservation Here...</a>
               </div>
               
               <div id="7"class="card has-background-white">
                 <span class="card-header-icon-is-right heart heart-outline has-text-danger"></span>
                 <img  id="img2">
-                <h2  id="foodName" class="card-header has-text-black">Resturant 2</h2>
-                <p id="link"class="card-content has-text-black">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <h2  id="foodName" class="card-header has-text-black">Resturant Name</h2>
+                <p class="card-content has-text-black">Link To Site:</p>
+                <a target="_blank" id="link">Make Reservation Here...</a>
               </div>
               
               <div id="8" class="card has-background-white">
                 <span class="card-header-icon-is-right heart heart-outline has-text-danger"></span>
                 <img  id="img2">
-                <h2  id="foodName" class="card-header has-text-black">Resturant 3</h2>
-                <p class="card-content has-text-black">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <h2  id="foodName" class="card-header has-text-black">Resturant Name</h2>
+                <p class="card-content has-text-black">Link To Site:</p>
+                <a target="_blank" id="link">Make Reservation Here...</a>
               </div>
 
               <div id="9" class="card has-background-white">
                 <span class="card-header-icon-is-right heart heart-outline has-text-danger"></span>
                 <img  id="img2">
-                <h2  id="foodName" class="card-header has-text-black">Resturant 4</h2>
-                <p id="link" class="card-content has-text-black">Quisque eget ante eu augue mollis mattis a euismod velit.</p>
+                <h2  id="foodName" class="card-header has-text-black">Resturant Name</h2>
+                <p class="card-content has-text-black">Link To Site:</p>
+                <a target="_blank" id="link">Make Reservation Here...</a>
               </div>
               
               <div id="10" class="card has-background-white">
                 <span class="card-header-icon-is-right heart heart-outline has-text-danger"></span>
                 <img  id="img2">
-                <h2 id="foodName" class="card-header has-text-black">Resturant 5</h2>
-                <p id="link" class="card-content has-text-black">Phasellus ullamcorper, purus et pellentesque dignissim, elit purus bibendum urna.</p>
+                <h2 id="foodName" class="card-header has-text-black">Resturant Name</h2>
+                <p class="card-content has-text-black">Link To Site:</p>
+                <a target="_blank" id="link">Make Reservation Here...</a>
               </div>    
             </div>
           </div>
     </main>
     <!-- ****** FOOTER ****** -->
-
-
-     <div id="HeroFt" class="hero is-medium is-info">
+    <footer>
+      <div id="HeroFt" class="hero is-medium is-info">
         <div class="hero-body columns">
           <h1 class="column i-half title">GIT FOOD.Travel
               <div class="subtitle"> by <a href="#">Kaileon Wallace, Nigel Poblete, and Kristin De Salme</a></div>
           </h1>
-          <div class="column "> <button href="#top" onclick="scrollToTop()" id="home-btn" class="button is-large is-dark has-text-white text-is-center column">Home</button></div>
+          <div class="column "><button href="#top" onclick="scrollToTop()" id="home-btn" class="button is-large is-dark has-text-white text-is-center column">Home</button></div>
         </div>
      </div>
-
+    </footer>
 </body>
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"></script>
   <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>

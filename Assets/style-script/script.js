@@ -2,12 +2,20 @@ var getData = $("#getDates") //submit button on check in and out
 var checkIn = $("#datepicker-1") // check in input
 var checkOut = $("#datepicker-2") // check out input
 var cityHotel = $("#cityHotel") // gets value in search box for hotels 
+var foodBtn = $("#food") // food search button 
 const options = {
 	method: 'GET',
 	headers: {
 		'X-RapidAPI-Key': '8ae759da67msh17660d17a33b0aep134bc6jsn4d902f5fbb19',
 		'X-RapidAPI-Host': 'priceline-com-provider.p.rapidapi.com'
 	}
+};
+const option = {
+    method: 'GET',
+    headers: {
+        'X-RapidAPI-Key': 'f7405bb471mshd0743285be682f2p1aecacjsncf8b70e2b390',
+        'X-RapidAPI-Host': 'travel-advisor.p.rapidapi.com'
+    }
 };
 
 // *********** Options Exmaple ***********  just for explaination only \\
@@ -118,9 +126,7 @@ the hotel fetch parameters, these functions provide the datepicker widget*/
 
 			// addressInfo.textContent = `${address}, ${city}, ${provinceCode} ${zip}, ${country} (${countryCode})`;
 			// ****** NIGELS CODE ******
-	
 			id++
-
 		}
 
 	})
@@ -128,7 +134,65 @@ the hotel fetch parameters, these functions provide the datepicker widget*/
 	.catch(err => console.error(err));
  }
 
- getData.on("click",checkDates) // when you click on submit button this function runs
+ 
+var foodSearch =  function(event) {
+	event.preventDefault();
+	var food = $("#findFood"); // this is targetting the input for food
+	var findFood = food.val(); // this is grabbing the value from input
+	
+	function returnFood(urlFood, param) {
+		return fetch(urlFood, param)
+		.then(function(response) {
+			return response.json()
+		})
+	}
+	returnFood(`https://travel-advisor.p.rapidapi.com/locations/search?query=${findFood}&offset=0&units=km&currency=USD&sort=relevance&lang=en_US`, option)
+	.then(function(foodFindings) { // gives us access to get location ID
+		console.log(foodFindings);
+		var locID = foodFindings.data[0].result_object.location_id // gets location ID
+		console.log(locID);
+
+		var restaurantSearch = `https://travel-advisor.p.rapidapi.com/restaurants/list?location_id=${locID}&limit=30&min_rating=4.0&open_now=false&lang=en_US`
+		returnFood(restaurantSearch, option) 
+		.then(function(foodListings) {
+			console.log(foodListings)
+			var id = 6;
+			for(var i = 0; i < 6; i++) {
+				try { 
+					var restaurantNames = foodListings.data[i].name; // restaurant name
+				} catch(e) { 
+					console.log(e) 
+					continue
+				}
+				try {
+					var foodImg = foodListings.data[i].photo.images.original.url // picture of hotel
+				} catch(e) {
+					console.log(e);
+					continue
+				} try {
+					var webLink = foodListings.data[i].website // link to site
+				} catch(e) {
+					console.log(e)
+					continue
+				}
+			 
+				console.log(restaurantNames)
+				console.log(foodImg)
+				console.log(webLink)
+				$(`#${id}`).children("#foodName").text(restaurantNames);
+                $(`#${id}`).children("#img2").attr("src", foodImg);
+                $(`#${id}`).children("#link").attr("href", webLink);
+				id++
+			}
+		})
+	})
+	.catch(err => console.error(err));
+}
+
+getData.on("click",checkDates) // when you click on submit button this function runs
+
+foodBtn.on("click", foodSearch) // when you click on the food search button, the foodSearch function will run 
+
 
   // when the heart icon is clicked on 
 //   var hearts = document.querySelectorAll('.heart');
@@ -152,3 +216,8 @@ the hotel fetch parameters, these functions provide the datepicker widget*/
 	console.log(searchHotel)
 
   }
+
+
+  function saveFood(foodPlace) {
+	var dining = JSON.parse(localStorage.getItem("Restaurants")) || [];
+	if(!dining.includes(foodPlace)) }

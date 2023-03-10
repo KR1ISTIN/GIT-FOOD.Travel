@@ -25,7 +25,7 @@
     </div>
     <!--------Nav Links-------->
     <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
+      <div  class="navbar-start">
         <a class="navbar-item">
           Home
         </a>
@@ -37,14 +37,12 @@
             Favorites
           </a>
           <div class="navbar-dropdown">
-            <a class="navbar-item">
-              Favorite Food
+            <a id="faveId" class="navbar-item">
+              Hotels
             </a>
-            <a class="navbar-item">
-              Favorite Hotels
-            </a>
-            <a class="navbar-item">
-              All Favorites 
+
+            <a id="faveId" class="navbar-item">
+              Resturant
             </a>
             <hr class="navbar-divider">
           </div>
@@ -63,7 +61,7 @@
   </nav>
     <!-- ****** HEADER ****** -->
     <header>
-      <section class="hero is-large">
+      <section  id= "TOP" class="hero is-large">
           <div class="hero-body">
             <p class="title" style="color:white">
               GIT FOOD.Travel
@@ -98,9 +96,9 @@
   </div>
   <button id="getDates" class="button is-dark is-small">Submit</button>
   <div id="popUP" style="text-align: center; color: white"></div>
-    <!-- ****** BOTH CARD CONAINERS ***** -->
+    <!-- ****** CONTAINER OF THE CONTAINER FOR BOTH HOTEL AND RESTURAUNTS ***** -->
      <main id="cardCon">
-          <!-- ********* FOOD CARD container *********** -->
+          <!-- ********* BOTH CARD COLUMN CONTAINERS *********** -->
           <div id="fCard" class="columns is-mobile" style="justify-content:center; justify-content:space-around">
             <div class="is-half" id="hotelID">
               <!-- ********* HOTEL CARDS *********** -->    
@@ -108,35 +106,35 @@
                 <span class="card-header-icon-is-left heart heart-outline has-text-danger"></span>
                 <img  id="img">
                 <h2 id="hotelName"class="card-header has-text-black">Hotel 1</h2>
-                <p id="address"class="card-content has-text-black">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p id="address"class="card-content has-text-black"></p>
               </div>
 
               <div id="2" class="card has-background-white">
                <span class="card-header-icon-is-left heart heart-outline has-text-danger"></span>
                <img  id="img">
                 <h2 id="hotelName"class="card-header has-text-black">Hotel 2</h2>
-                <p id="address"class="card-content has-text-black">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p id="address"class="card-content has-text-black"></p>
               </div>
 
               <div id="3" class="card has-background-white">
                 <span class="card-header-icon-is-left heart heart-outline has-text-danger"></span>
                 <img  id="img">
                 <h2 id="hotelName"class="card-header has-text-black">Hotel 3</h2>
-                <p id="address"class="card-content has-text-black">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p id="address"class="card-content has-text-black"></p>
               </div>
 
               <div id="4" class="card has-background-white">
                 <span class="card-header-icon-is-left heart heart-outline has-text-danger"></span>
                 <img  id="img">
                 <h2 id="hotelName"class="card-header has-text-black">Hotel4</h2>
-                <p id="address"class="card-content has-text-black">Quisque eget ante eu augue mollis mattis a euismod velit.</p>
+                <p id="address"class="card-content has-text-black"></p>
               </div>
 
               <div id="5" class="card has-background-white">
                 <span class="card-header-icon-is-left heart heart-outline has-text-danger"></span>
                 <img  id="img">
                 <h2 id="hotelName"class="card-header has-text-black">Hotel 5</h2>
-                <p id="address"class="card-content has-text-black">Phasellus ullamcorper, purus et pellentesque dignissim, elit purus bibendum urna.</p>
+                <p id="address"class="card-content has-text-black"></p>
               </div> 
             </div>
               <!--********RESTAURANT CARD*********-->
@@ -181,12 +179,16 @@
     <!-- ****** FOOTER ****** -->
 
 
-     <div id="HeroFt" class="hero is-medium is-info">
-        <div class="hero-body columns">
-          <h1 class="column i-half title">GIT FOOD.Travel
-              <div class="subtitle"> by <a href="#">Kaileon Wallace, Nigel Poblete, and Kristin De Salme</a></div>
+     <div id="HeroFt" class="footer hero is-medium is-info">
+        <div class="content has-text-centered hero-body columns">
+          <h1 class="column i-half title has-text-white mb-6">GIT FOOD.Travel
+              <div class="subtitle has-text-white"> by 
+                <a href="https://github.com/kaydubb10" class="button is-success is-rounded " id= "kay">Kaileon Wallace</a>
+                <a href="https://github.com/evohat3" class="button is-warning is-rounded" id= "nigel">Nigel Poblete</a> 
+                and 
+                <a href="https://github.com/KR1ISTIN" class="button is-danger is-rounded" id= "kristin">Kristin De Salme</a>
           </h1>
-          <div class="column "> <button href="#top" onclick="scrollToTop()" id="home-btn" class="button is-large is-dark has-text-white text-is-center column">Home</button></div>
+          <div class="column content has-text-centered"> <a href= "#TOP" id="home-btn" class="button is-medium is-dark has-text-white text-is-center">Home</a></div>
         </div>
      </div>
 

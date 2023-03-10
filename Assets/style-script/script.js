@@ -129,11 +129,7 @@ the hotel fetch parameters, these functions provide the datepicker widget*/
 	.catch(err => console.error(err));
  }
 
- getData.on("click",checkDates)  {
-
-
-	
- } // when you click on submit button this function runs
+ getData.on("click",checkDates) // when you click on submit button this function runs
 
   // when the heart icon is clicked on 
   var hearts = document.querySelectorAll('.heart');

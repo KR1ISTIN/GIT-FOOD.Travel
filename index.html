@@ -38,12 +38,14 @@
           </a>
           <div class="navbar-dropdown">
             <a id="faveId" class="navbar-item">
-              Hotels
+              Hotel History
             </a>
-
             <a id="faveId" class="navbar-item">
-              Resturant
+              Resturant History
             </a>
+            <div id="foodBtn" class="navbar-item">
+              <button class="btn" onclick="foodSearch('')"></button>
+            </div>
             <hr class="navbar-divider">
           </div>
           <div id="timeBox" class="p-3 has-background-grey">
@@ -137,7 +139,7 @@
               </div> 
             </div>
               <!--********RESTAURANT CARD*********-->
-            <div class="is-half">
+            <div class="is-half" id="restaurantID" style="display: none;">
               <div id="6"class="card has-background-white">
                 <span class="card-header-icon-is-right heart heart-outline has-text-danger "></span>
                 <img  id="img2">

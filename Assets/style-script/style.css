@@ -114,6 +114,22 @@ html {
   background: linear-gradient(328deg, rgba(47,46,44,1) 0%, rgba(0,0,0,1) 100%);
 }
 
+.restaurantHistory {
+  margin-top: .2em; 
+  border:none; 
+  background: none; 
+  cursor: pointer; 
+	text-decoration: overline; 
+  text-transform: capitalize;
+  color: #4a4a4a;
+}
+
+.restaurantHistory:hover {
+  text-decoration: none;
+  color: black;
+}
+
+
 @media screen and (max-width: 770px) {
   #hotelID {
     width: 50%;
@@ -148,3 +164,4 @@ html {
       left: 0;
     }
   }
+

@@ -2,7 +2,9 @@ var getData = $("#getDates") //submit button on check in and out
 var checkIn = $("#datepicker-1") // check in input
 var checkOut = $("#datepicker-2") // check out input
 var cityHotel = $("#cityHotel") // gets value in search box for hotels 
-var foodBtn = $("#food") // food search button 
+var foodButton = $("#food") // food search button 
+var hotelColumn = $("#hotelID")
+var restaurantColum = $('#restaurantID')
 const options = {
 	method: 'GET',
 	headers: {
@@ -43,6 +45,11 @@ $(document).ready(function() {
 	});
   });
 
+// *********** HIDES BOTH COLUMNS AT START *********** \\
+hotelColumn.hide(); // hides hotel column/cards at start
+restaurantColum.hide(); // hides restaurant column/cards at start
+// *********** HIDES BOTH COLUMNS AT START************** \\
+
 
 /*these two dates will update the input box with the 
 check in and out value so we can use it for 
@@ -59,6 +66,7 @@ the hotel fetch parameters, these functions provide the datepicker widget*/
  });
 
  var checkDates = function (event) {
+	hotelColumn.show();
 	event.preventDefault();
 	var searchHotel = cityHotel.val(); // value for search city box for hotels
 	var inDate = checkIn.val(); //check in widget value
@@ -96,11 +104,13 @@ the hotel fetch parameters, these functions provide the datepicker widget*/
 
 		var id = 1; // is equal to each div hotel card
 		var isNull = null;
-		for(var i = 0; i < 6; i++) {
+		
+		for(var i = 0; i < 100; i++) {
 			try { // javascript says hey there might be an error here so let's try out this line of code first
 				var hotelName = hotelListings.hotels[i].name // logs top 5 hotel // here we write the code that is giving us an error
 			} catch(e) { // so if there is an error, we catch the error (e) and do something with it
 				console.log(e) // in this case, we console.log(e) the error so we know what it is and the program can "skip" the error to keep running and not stop here 
+				continue
 			}
 			try {
 				var imgURL = hotelListings.hotels[i].media.url; // picture of hotel
@@ -114,6 +124,7 @@ the hotel fetch parameters, these functions provide the datepicker widget*/
 				// ****** Nigel's Variables ******
 			} catch(e) {
 				console.log(e);
+				continue
 			}
 			$(`#${id}`).children("#img").attr("src", imgURL);
 			$(`#${id}`).children("#hotelName").text(hotelName);
@@ -135,11 +146,8 @@ the hotel fetch parameters, these functions provide the datepicker widget*/
  }
 
  
-var foodSearch =  function(event) {
-	event.preventDefault();
-	var food = $("#findFood"); // this is targetting the input for food
-	var findFood = food.val(); // this is grabbing the value from input
-	
+function foodSearch(findFood) {
+	restaurantColum.show();
 	function returnFood(urlFood, param) {
 		return fetch(urlFood, param)
 		.then(function(response) {
@@ -157,7 +165,7 @@ var foodSearch =  function(event) {
 		.then(function(foodListings) {
 			console.log(foodListings)
 			var id = 6;
-			for(var i = 0; i < 6; i++) {
+			for(var i = 0; i < 20; i++) {
 				try { 
 					var restaurantNames = foodListings.data[i].name; // restaurant name
 				} catch(e) { 
@@ -185,13 +193,19 @@ var foodSearch =  function(event) {
 				id++
 			}
 		})
+		findFood = $("#findFood").val("");
 	})
 	.catch(err => console.error(err));
 }
 
-getData.on("click",checkDates) // when you click on submit button this function runs
+getData.on("click",checkDates) // when you click on hotel submit button this function runs
 
-foodBtn.on("click", foodSearch) // when you click on the food search button, the foodSearch function will run 
+foodButton.on("click", function() {
+	restaurantColum.show();
+	var findFood = $("#findFood").val(); // this is targetting the input for food and this is grabbing the value from input
+	foodSearch(findFood);
+	saveFood(findFood);
+}) // when you click on the food search button, the foodSearch function will run 
 
 
   // when the heart icon is clicked on 
@@ -218,6 +232,31 @@ foodBtn.on("click", foodSearch) // when you click on the food search button, the
   }
 
 
-  function saveFood(foodPlace) {
+function saveFood(findFood) {
 	var dining = JSON.parse(localStorage.getItem("Restaurants")) || [];
-	if(!dining.includes(foodPlace)) }
+	if(!dining.includes(findFood)) {
+		dining.push(findFood);
+		localStorage.setItem("Restaurants", JSON.stringify(dining))
+	
+	showDining()
+	}
+}
+
+function showDining() {
+	var dining = JSON.parse(localStorage.getItem("Restaurants")) || [];
+	$("#foodBtn").empty();
+	for(var i = 0; i < dining.length; i++){
+		var city = dining[i];
+		var btn = getCity(city)
+		$("#foodBtn").append(btn)
+	}
+}
+
+function getCity(findFood){
+	var html =  `
+	<button class="btn restaurantHistory" 
+		onclick="foodSearch('${findFood}')">${findFood}</button>`
+	return $(html);
+ }
+
+ showDining()

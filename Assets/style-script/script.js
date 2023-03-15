@@ -65,16 +65,8 @@ the hotel fetch parameters, these functions provide the datepicker widget*/
 	}); 
  });
 
- var checkDates = function (event) {
-	hotelColumn.show();
-	event.preventDefault();
-	var searchHotel = cityHotel.val(); // value for search city box for hotels
-	var inDate = checkIn.val(); //check in widget value
-	var outDate = checkOut.val(); // check out widget value
-
-	saveHist ()
-
-	if((inDate === "") || (outDate === "" || cityHotel === "")){ // if user does not fill in both widget dates then input box will outline in red
+function checkDates(storeHotels) {
+	if((storeHotels.checkIn === "") || (storeHotels.checkOut === "" || cityHotel === "")){ // if user does not fill in both widget dates then input box will outline in red
 		$("#datepicker-1").addClass("is-danger");
 		$("#datepicker-2").addClass("is-danger");
 		cityHotel.addClass("is-danger");
@@ -90,22 +82,20 @@ the hotel fetch parameters, these functions provide the datepicker widget*/
 			return response.json()
 		})
 	}
-	returnHotel(`https://priceline-com-provider.p.rapidapi.com/v1/hotels/locations?name=${searchHotel}&search_type=ALL`, options)
+	returnHotel(`https://priceline-com-provider.p.rapidapi.com/v1/hotels/locations?name=${storeHotels.city}&search_type=ALL`, options)
 	.then(function(data) {
 		console.log(data) //fetches the city data
 		var cityID = data[0].cityID // gets the city ID for each city that the user puts in
 		console.log(cityID) //confirming we attacked right way to access city ID
 
-		var hotelsURL = `https://priceline-com-provider.p.rapidapi.com/v1/hotels/search?date_checkout=${outDate}&sort_order=HDR&date_checkin=${inDate}&location_id=${cityID}&star_rating_ids=4.0,5.0%2C5.0&rooms_number=1`;
+		var hotelsURL = `https://priceline-com-provider.p.rapidapi.com/v1/hotels/search?date_checkout=${storeHotels.checkOut}&sort_order=HDR&date_checkin=${storeHotels.checkIn}&location_id=${cityID}&star_rating_ids=4.0,5.0%2C5.0&rooms_number=1`;
 	
 	returnHotel(hotelsURL, options) // this is going to return hotels in the city
 	.then(function(hotelListings) {
 		console.log(hotelListings); // will help navigate through array to get values you want
 
 		var id = 1; // is equal to each div hotel card
-		var isNull = null;
-		
-		for(var i = 0; i < 100; i++) {
+		for(var i = 0; i < 50; i++) {
 			try { // javascript says hey there might be an error here so let's try out this line of code first
 				var hotelName = hotelListings.hotels[i].name // logs top 5 hotel // here we write the code that is giving us an error
 			} catch(e) { // so if there is an error, we catch the error (e) and do something with it
@@ -198,7 +188,20 @@ function foodSearch(findFood) {
 	.catch(err => console.error(err));
 }
 
-getData.on("click",checkDates) // when you click on hotel submit button this function runs
+getData.on("click", function() {
+	hotelColumn.show();
+	var searchHotel = cityHotel.val(); // value for search city box for hotels
+	var inDate = checkIn.val(); //check in widget value
+	var outDate = checkOut.val(); // check out widget value
+	var storeHotels = {
+		"city": searchHotel,
+		"checkIn": inDate,
+		"checkOut": outDate,
+	}
+	checkDates(storeHotels);
+	saveHotels(storeHotels)
+
+}) 
 
 foodButton.on("click", function() {
 	restaurantColum.show();
@@ -207,29 +210,36 @@ foodButton.on("click", function() {
 	saveFood(findFood);
 }) // when you click on the food search button, the foodSearch function will run 
 
+  
 
-  // when the heart icon is clicked on 
-//   var hearts = document.querySelectorAll('.heart');
-//   hearts.forEach((heart) => {
-// 	heart.addEventListener('click', () => {
-// 	  heart.classList.toggle('clicked');
-// 	  var cardTitle = heart.nextElementSibling.textContent;
 
-// 	  if (heart.classList.contains('clicked')) {
-// 		localStorage.setItem(cardTitle, true);
-// 	  } else {
-// 		localStorage.removeItem(cardTitle);
-// 	  }
-// 	  console.log(localStorage);
-// 	});
-//   });
+function saveHotels(storeHotels) {
+	var arrHotels = JSON.parse(localStorage.getItem("Hotels")) || [];
+	if(!arrHotels.includes(storeHotels)) {
+		arrHotels.push(storeHotels);
+		localStorage.setItem("Hotels", JSON.stringify(arrHotels))
+		showHotels()
+	}
+}
 
-  function saveHist () {
-	searchHotel = cityHotel.val()
 
-	console.log(searchHotel)
+function showHotels() {
+	var arrHotels = JSON.parse(localStorage.getItem("Hotels")) || [];
+	$("#hotelBtn").empty();
+	for(var i = 0; i < arrHotels.length; i++) {
+		var city = arrHotels[i].city;
+		var btn = getHotels(city);
+		$("#hotelBtn").append(btn)
+	}
 
-  }
+}
+// working on trying to get local storage buttons when clicked on under favorites, api will be called again
+function getHotels(storeHotels){
+	var html =  `
+	<button class="btn restaurantHistory" 
+		onclick="checkDates('${storeHotels.city},${storeHotels.checkIn},${storeHotels.checkOut}')">${storeHotels}</button>`
+	return $(html);
+}
 
 
 function saveFood(findFood) {
@@ -260,3 +270,20 @@ function getCity(findFood){
  }
 
  showDining()
+ showHotels()
+
+   // when the heart icon is clicked on - will continue 
+   var hearts = document.querySelectorAll('.heart');
+   hearts.forEach((heart) => {
+	 heart.addEventListener('click', () => {
+	   heart.classList.toggle('clicked');
+	   var cardTitle = heart.nextElementSibling.textContent;
+ 
+	   if (heart.classList.contains('clicked')) {
+		 localStorage.setItem(cardTitle, true);
+	   } else {
+		 localStorage.removeItem(cardTitle);
+	   }
+	   console.log(localStorage);
+	 });
+   });

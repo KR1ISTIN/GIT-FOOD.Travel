@@ -23,8 +23,8 @@ const option = {
 // *********** Options Exmaple ***********  just for explaination only \\
 // if I pass options here as ${options}, I will get [object Object]
 // if I pass options here simply as options, I will get the method and headers needed
-console.log(`${options}`); // outputs [object Object]
-console.log(options); // outputs {method: 'GET', headers: {…}} ** aka what we want to see!! **
+// console.log(`${options}`); // outputs [object Object]
+// console.log(options); // outputs {method: 'GET', headers: {…}} ** aka what we want to see!! **
 // *********** Options Exmaple *********** \\
 
 
@@ -92,7 +92,7 @@ function checkDates(storeHotels) {
 	
 	returnHotel(hotelsURL, options) // this is going to return hotels in the city
 	.then(function(hotelListings) {
-		console.log(hotelListings); // will help navigate through array to get values you want
+		// console.log(hotelListings); // will help navigate through array to get values you want
 
 		var id = 1; // is equal to each div hotel card
 		for(var i = 0; i < 50; i++) {
@@ -146,14 +146,14 @@ function foodSearch(findFood) {
 	}
 	returnFood(`https://travel-advisor.p.rapidapi.com/locations/search?query=${findFood}&offset=0&units=km&currency=USD&sort=relevance&lang=en_US`, option)
 	.then(function(foodFindings) { // gives us access to get location ID
-		console.log(foodFindings);
+		// console.log(foodFindings);
 		var locID = foodFindings.data[0].result_object.location_id // gets location ID
-		console.log(locID);
+		// console.log(locID);
 
 		var restaurantSearch = `https://travel-advisor.p.rapidapi.com/restaurants/list?location_id=${locID}&limit=30&min_rating=4.0&open_now=false&lang=en_US`
 		returnFood(restaurantSearch, option) 
 		.then(function(foodListings) {
-			console.log(foodListings)
+			// console.log(foodListings)
 			var id = 6;
 			for(var i = 0; i < 20; i++) {
 				try { 
@@ -174,9 +174,9 @@ function foodSearch(findFood) {
 					continue
 				}
 			 
-				console.log(restaurantNames)
-				console.log(foodImg)
-				console.log(webLink)
+				// console.log(restaurantNames)
+				// console.log(foodImg)
+				// console.log(webLink)
 				$(`#${id}`).children("#foodName").text(restaurantNames);
                 $(`#${id}`).children("#img2").attr("src", foodImg);
                 $(`#${id}`).children("#link").attr("href", webLink);
@@ -227,7 +227,7 @@ function saveHotels(storeHotels) {
 			arrHotels.push(storeHotels);
 			localStorage.setItem("Hotels", JSON.stringify(arrHotels));
 			showHotels();
-			console.log(arrHotels); // ******  logs city name, check in , check out, city ID ***********
+			// console.log(arrHotels); // ******  logs city name, check in , check out, city ID ***********
 		})
 		.catch(err => console.error(err));
 	}
@@ -293,7 +293,7 @@ function getCity(findFood){
 	   } else {
 		 localStorage.removeItem(cardTitle);
 	   }
-	   console.log(localStorage);
+	//    console.log(localStorage);
 	 });
    });
 
@@ -310,13 +310,13 @@ $(document).ready(function() {
 	  var hotelInfo = hotelData.find(hotel => hotel.city === city);
 	  var searchUrl = `https://priceline-com-provider.p.rapidapi.com/v1/hotels/search?date_checkout=${hotelInfo.checkOut}&sort_order=HDR&date_checkin=${hotelInfo.checkIn}&location_id=${hotelInfo.cityID}&star_rating_ids=4.0,5.0%2C5.0&rooms_number=1`;
 	  
-	 console.log(hotelInfo)
+	//  console.log(hotelInfo)
 	 
 	  fetch(searchUrl, options)
 		.then(response => response.json())
 		.then(hotelListings => {
 
-console.log(hotelListings) // logs fetch call
+// console.log(hotelListings) // logs fetch call
 var id = 1;
 for(var i = 0; i < 50; i++) {
 	try {

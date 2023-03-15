@@ -99,7 +99,7 @@ function checkDates(storeHotels) {
 			try { // javascript says hey there might be an error here so let's try out this line of code first
 				var hotelName = hotelListings.hotels[i].name // logs top 5 hotel // here we write the code that is giving us an error
 			} catch(e) { // so if there is an error, we catch the error (e) and do something with it
-				console.log(e) // in this case, we console.log(e) the error so we know what it is and the program can "skip" the error to keep running and not stop here 
+				// console.log(e) // in this case, we console.log(e) the error so we know what it is and the program can "skip" the error to keep running and not stop here 
 				continue
 			}
 			try {
@@ -113,7 +113,7 @@ function checkDates(storeHotels) {
 				var hotelInfo = (street + ', ' + city + ', ' + state + ' ' + zip)
 				// ****** Nigel's Variables ******
 			} catch(e) {
-				console.log(e);
+				// console.log(e);
 				continue
 			}
 			$(`#${id}`).children("#img").attr("src", imgURL);
@@ -159,18 +159,18 @@ function foodSearch(findFood) {
 				try { 
 					var restaurantNames = foodListings.data[i].name; // restaurant name
 				} catch(e) { 
-					console.log(e) 
+					// console.log(e) 
 					continue
 				}
 				try {
 					var foodImg = foodListings.data[i].photo.images.original.url // picture of hotel
 				} catch(e) {
-					console.log(e);
+					// console.log(e);
 					continue
 				} try {
 					var webLink = foodListings.data[i].website // link to site
 				} catch(e) {
-					console.log(e)
+					// console.log(e)
 					continue
 				}
 			 
@@ -322,7 +322,7 @@ for(var i = 0; i < 50; i++) {
 	try {
 		var hotelName = hotelListings.hotels[i].name 
 	} catch(e) { 
-		console.log(e)
+		// console.log(e)
 		continue
 	}
 	try {
@@ -336,7 +336,7 @@ for(var i = 0; i < 50; i++) {
 		var hotelInfo = (street + ', ' + city + ', ' + state + ' ' + zip)
 		
 	} catch(e) {
-		console.log(e);
+		// console.log(e);
 		continue
 	}
 	$(`#${id}`).children("#img").attr("src", imgURL);

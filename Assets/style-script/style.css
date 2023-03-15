@@ -139,7 +139,22 @@ html {
 
 .restaurantHistory:hover {
   text-decoration: none;
-  color: black;
+  color: red;
+}
+
+.hotelHistory {
+  margin-top: .2em; 
+  border:none; 
+  background: none; 
+  cursor: pointer; 
+	text-decoration: overline; 
+  text-transform: capitalize;
+  color: #4a4a4a;
+}
+
+.hotelHistory:hover {
+  text-decoration: none;
+  color: red;
 }
 
 

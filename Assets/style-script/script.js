@@ -8,7 +8,7 @@ var restaurantColum = $('#restaurantID')
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '8ae759da67msh17660d17a33b0aep134bc6jsn4d902f5fbb19',
+		'X-RapidAPI-Key': 'a42dd3ce69msh49141bfaf24059dp1ee105jsnada054ff001f',
 		'X-RapidAPI-Host': 'priceline-com-provider.p.rapidapi.com'
 	}
 };
@@ -84,9 +84,9 @@ function checkDates(storeHotels) {
 	}
 	returnHotel(`https://priceline-com-provider.p.rapidapi.com/v1/hotels/locations?name=${storeHotels.city}&search_type=ALL`, options)
 	.then(function(data) {
-		console.log(data) //fetches the city data
+		// console.log(data) //fetches the city data
 		var cityID = data[0].cityID // gets the city ID for each city that the user puts in
-		console.log(cityID) //confirming we attacked right way to access city ID
+		// console.log(cityID) //confirming we attacked right way to access city ID
 
 		var hotelsURL = `https://priceline-com-provider.p.rapidapi.com/v1/hotels/search?date_checkout=${storeHotels.checkOut}&sort_order=HDR&date_checkin=${storeHotels.checkIn}&location_id=${cityID}&star_rating_ids=4.0,5.0%2C5.0&rooms_number=1`;
 	
@@ -197,9 +197,11 @@ getData.on("click", function() {
 		"city": searchHotel,
 		"checkIn": inDate,
 		"checkOut": outDate,
+		
 	}
 	checkDates(storeHotels);
 	saveHotels(storeHotels)
+
 
 }) 
 
@@ -216,12 +218,20 @@ foodButton.on("click", function() {
 function saveHotels(storeHotels) {
 	var arrHotels = JSON.parse(localStorage.getItem("Hotels")) || [];
 	if(!arrHotels.includes(storeHotels)) {
-		arrHotels.push(storeHotels);
-		localStorage.setItem("Hotels", JSON.stringify(arrHotels))
-		showHotels()
+		fetch(`https://priceline-com-provider.p.rapidapi.com/v1/hotels/locations?name=${storeHotels.city}&search_type=ALL`, options)
+		.then(response => response.json())
+		.then(data => {
+			if (data.length > 0) {
+				storeHotels.cityID = data[0].cityID;
+			}
+			arrHotels.push(storeHotels);
+			localStorage.setItem("Hotels", JSON.stringify(arrHotels));
+			showHotels();
+			console.log(arrHotels); // ******  logs city name, check in , check out, city ID ***********
+		})
+		.catch(err => console.error(err));
 	}
 }
-
 
 function showHotels() {
 	var arrHotels = JSON.parse(localStorage.getItem("Hotels")) || [];
@@ -231,14 +241,13 @@ function showHotels() {
 		var btn = getHotels(city);
 		$("#hotelBtn").append(btn)
 	}
-
 }
-// working on trying to get local storage buttons when clicked on under favorites, api will be called again
+// // working on trying to get local storage buttons when clicked on under favorites, api will be called again
 function getHotels(storeHotels){
 	var html =  `
-	<button class="btn restaurantHistory" 
-		onclick="checkDates('${storeHotels.city},${storeHotels.checkIn},${storeHotels.checkOut}')">${storeHotels}</button>`
-	return $(html);
+	<button class="btn hotelHistory" 
+ 		onclick="checkDates('${storeHotels.city},${storeHotels.checkIn},${storeHotels.checkOut}')">${storeHotels}</button>`
+ 	 return $(html);
 }
 
 
@@ -287,3 +296,62 @@ function getCity(findFood){
 	   console.log(localStorage);
 	 });
    });
+
+
+//    ************** NIGELS UPDATE *************
+   
+//    ************** This function makes it so that it displays the hotels based on the information stored **************
+// ************* in the button that is appended to Hotel history in the navbar **************
+$(document).ready(function() {
+	$('.hotelHistory').on('click', function() {
+	  var hotelData = localStorage.getItem('Hotels');
+	  hotelData = JSON.parse(hotelData);
+	  var city = $(this).text();
+	  var hotelInfo = hotelData.find(hotel => hotel.city === city);
+	  var searchUrl = `https://priceline-com-provider.p.rapidapi.com/v1/hotels/search?date_checkout=${hotelInfo.checkOut}&sort_order=HDR&date_checkin=${hotelInfo.checkIn}&location_id=${hotelInfo.cityID}&star_rating_ids=4.0,5.0%2C5.0&rooms_number=1`;
+	  
+	 console.log(hotelInfo)
+	 
+	  fetch(searchUrl, options)
+		.then(response => response.json())
+		.then(hotelListings => {
+
+console.log(hotelListings) // logs fetch call
+var id = 1;
+for(var i = 0; i < 50; i++) {
+	try {
+		var hotelName = hotelListings.hotels[i].name 
+	} catch(e) { 
+		console.log(e)
+		continue
+	}
+	try {
+		var imgURL = hotelListings.hotels[i].media.url; // picture of hotel
+
+		
+		var street = hotelListings.hotels[i].location.address.addressLine1;
+		var city = hotelListings.hotels[i].location.address.cityName;
+		var state = hotelListings.hotels[i].location.address.provinceCode;
+		var zip = hotelListings.hotels[i].location.address.zip
+		var hotelInfo = (street + ', ' + city + ', ' + state + ' ' + zip)
+		
+	} catch(e) {
+		console.log(e);
+		continue
+	}
+	$(`#${id}`).children("#img").attr("src", imgURL);
+	$(`#${id}`).children("#hotelName").text(hotelName);
+	$(`#${id}`).children("#hotelName").attr("class", "title is-4");
+	$(`#${id}`).children("#address").text("Address: " + hotelInfo);
+	$(`#${id}`).children("#address").attr("class", "subtitle is-6")
+
+	id++
+	$('#hotelID').show()
+}
+		})
+		.catch(error => console.error(error));
+	});
+  });
+
+
+  

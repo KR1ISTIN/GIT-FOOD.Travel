@@ -8,7 +8,7 @@ var restaurantColum = $('#restaurantID')
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': '8ae759da67msh17660d17a33b0aep134bc6jsn4d902f5fbb19',
+		'X-RapidAPI-Key': 'a42dd3ce69msh49141bfaf24059dp1ee105jsnada054ff001f',
 		'X-RapidAPI-Host': 'priceline-com-provider.p.rapidapi.com'
 	}
 };
@@ -84,7 +84,7 @@ function checkDates(storeHotels) {
 	}
 	returnHotel(`https://priceline-com-provider.p.rapidapi.com/v1/hotels/locations?name=${storeHotels.city}&search_type=ALL`, options)
 	.then(function(data) {
-		console.log(data) //fetches the city data
+		// console.log(data) //fetches the city data
 		var cityID = data[0].cityID // gets the city ID for each city that the user puts in
 		console.log(cityID) //confirming we attacked right way to access city ID
 
@@ -236,7 +236,7 @@ function showHotels() {
 // working on trying to get local storage buttons when clicked on under favorites, api will be called again
 function getHotels(storeHotels){
 	var html =  `
-	<button class="btn restaurantHistory" 
+	<button class="btn hotelHistory" 
 		onclick="checkDates('${storeHotels.city},${storeHotels.checkIn},${storeHotels.checkOut}')">${storeHotels}</button>`
 	return $(html);
 }
@@ -287,3 +287,112 @@ function getCity(findFood){
 	   console.log(localStorage);
 	 });
    });
+
+
+// //    ************** NIGELS NOTES *************
+   
+
+// $('.hotelHistory').on('click', function() {
+// var hotelData = localStorage.getItem('Hotels');
+// 	hotelData = JSON.parse(hotelData);
+// 	for (var i = 0; i < hotelData.length; i++) {
+// 	console.log(hotelData)
+// 		console.log(hotelData[i].city);
+// 		console.log(hotelData[i].checkIn)
+// 		console.log(hotelData[i].checkOut)
+
+// 		function returnHotel(urlForHotels, params) {
+// 			return fetch(urlForHotels, params)
+// 			.then(function(response) {
+// 				return response.json()
+// 			})
+// 		}
+
+// 		returnHotel(`https://priceline-com-provider.p.rapidapi.com/v1/hotels/locations?name=${hotelData[i].city}&search_type=ALL`, options)
+// 		.then(function(data) {
+// 			// console.log(data) //fetches the city data
+// 			var cityID = data[0].cityID // gets the city ID for each city that the user puts in
+// 			console.log(cityID) //confirming we attacked right way to access city ID
+	
+// 			var hotelsURL = `https://priceline-com-provider.p.rapidapi.com/v1/hotels/search?date_checkout=${hotelData[i].checkOut}&sort_order=HDR&date_checkin=${hotelData[i].checkIn}&location_id=${cityID}&star_rating_ids=4.0,5.0%2C5.0&rooms_number=1`;
+		
+// 		returnHotel(hotelsURL, options) // this is going to return hotels in the city
+// 		.then(function(hotelListings) {
+// 			console.log(hotelListings); // will help navigate through array to get values you want
+	
+// 			var id = 1; // is equal to each div hotel card
+// 			for(var i = 0; i < 50; i++) {
+// 				try { // javascript says hey there might be an error here so let's try out this line of code first
+// 					var hotelName = hotelListings.hotels[i].name // logs top 5 hotel // here we write the code that is giving us an error
+// 				} catch(e) { // so if there is an error, we catch the error (e) and do something with it
+// 					console.log(e) // in this case, we console.log(e) the error so we know what it is and the program can "skip" the error to keep running and not stop here 
+// 					continue
+// 				}
+// 				try {
+// 					var imgURL = hotelListings.hotels[i].media.url; // picture of hotel
+			
+// 					// ****** Nigel's Variables ******
+// 					var street = hotelListings.hotels[i].location.address.addressLine1;
+// 					var city = hotelListings.hotels[i].location.address.cityName;
+// 					var state = hotelListings.hotels[i].location.address.provinceCode;
+// 					var zip = hotelListings.hotels[i].location.address.zip
+// 					var hotelInfo = (street + ', ' + city + ', ' + state + ' ' + zip)
+// 					// ****** Nigel's Variables ******
+// 				} catch(e) {
+// 					console.log(e);
+// 					continue
+// 				}
+// 				$(`#${id}`).children("#img").attr("src", imgURL);
+// 				$(`#${id}`).children("#hotelName").text(hotelName);
+// 				// ****** NIGELS CODE ******
+// 				$(`#${id}`).children("#hotelName").attr("class", "title is-4");
+// 				$(`#${id}`).children("#address").text("Address: " + hotelInfo);
+// 				$(`#${id}`).children("#address").attr("class", "subtitle is-6")
+// 				// ****** Play Around Notes *******
+// 				// TODO Research hotelListings.hotels[i].hotelFeatures.hotelFeatures[i]; mabe can be added in with description?
+	
+// 				// addressInfo.textContent = `${address}, ${city}, ${provinceCode} ${zip}, ${country} (${countryCode})`;
+// 				// ****** NIGELS CODE ******
+// 				id++
+// 			}
+	
+// 		})
+// 		})
+// 		.catch(err => console.error(err));
+// 	 }
+// 	})
+
+
+
+
+
+// $('.hotelHistory').on('click', function() {
+	// var hotelData = JSON.parse(localStorage.getItem('Hotels'));
+	// var city = hotelData.city;
+	// var checkIn = hotelData.checkIn;
+	// var checkOut = hotelData.checkOut;
+  
+	// console.log(city)
+	// console.log(checkIn)
+	// console.log(checkOut)
+	
+	// var urlForLocations = `https://priceline-com-provider.p.rapidapi.com/v1/hotels/locations?name=${city}&search_type=ALL`;
+	// var urlForHotels = `https://priceline-com-provider.p.rapidapi.com/v1/hotels/search?date_checkout=${checkOut}&sort_order=HDR&date_checkin=${checkIn}&location_id=${cityID}&star_rating_ids=4.0,5.0%2C5.0&rooms_number=1`;
+  
+	// returnHotel(urlForLocations, options)
+	//   .then(function(data) {
+	// 	var cityID = data[0].cityID;
+	// 	console.log(cityID);
+		
+	// 	// pass the options object as the second parameter
+	// 	return returnHotel(urlForHotels, options);
+	//   })
+	//   .then(function(hotelListings) {
+	// 	console.log(hotelListings);
+  
+	// 	// process the hotelListings data and render it on the page
+	//   })
+	//   .catch(function(error) {
+	// 	console.error(error);
+	//   });
+//   });

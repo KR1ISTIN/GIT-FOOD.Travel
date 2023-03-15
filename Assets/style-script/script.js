@@ -126,7 +126,7 @@ function checkDates(storeHotels) {
 			// TODO Research hotelListings.hotels[i].hotelFeatures.hotelFeatures[i]; mabe can be added in with description?
 
 			// addressInfo.textContent = `${address}, ${city}, ${provinceCode} ${zip}, ${country} (${countryCode})`;
-			// ****** NIGELS CODE *****
+			// ****** NIGELS CODE ******
 			id++
 		}
 
@@ -221,6 +221,8 @@ function saveHotels(storeHotels) {
 		showHotels()
 	}
 }
+
+
 function showHotels() {
 	var arrHotels = JSON.parse(localStorage.getItem("Hotels")) || [];
 	$("#hotelBtn").empty();

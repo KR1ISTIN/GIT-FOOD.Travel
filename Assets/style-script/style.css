@@ -1,8 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+
 
 .hero {
     background-image: url("../imgs/nils-nedel-ONpGBpns3cs-unsplash.jpg");
     background-repeat: none;
     background-size: cover;
+
+}
+
+.git {
+  padding: 5px;
+  font-family: 'Dancing Script', cursive;
+
+}
+
+.subtitle {
+  margin-top: 30px;
+  font-family: none;
 }
 
 #search {
@@ -61,10 +76,8 @@ main {
 
 
 #home-btn {
-float: left;
-margin-top: 3%;
-border: black;
-border-width: 5px;
+border: white;
+border-width: 2px;
 border-style: solid;
   }
 

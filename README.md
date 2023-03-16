@@ -14,7 +14,7 @@
         The traveler's search history will then appear in the top navigation menu for future use, underneath the favorites tab.
   ------
 - Check out our website! 
-[GIT FOOD.Travel](https://kr1istin.github.io/Project-one/)
+[GIT FOOD.Travel](https://kr1istin.github.io/GIT-FOOD.Travel/)
 
 ------------
 ![alt text](/Assets/imgs/travel.png)

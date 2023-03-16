@@ -41,6 +41,8 @@ Kaileon Wallace
 - JavaScript
 - JQuery
 - Bulma
+- Day.js
+- Google Fonts
 ------------
 # APIs
 ----------------
